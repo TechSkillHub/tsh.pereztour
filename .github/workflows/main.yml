@@ -55,4 +55,4 @@ jobs:
           remote-path: /home/git/projects/tsh.pereztour
 
           # Port for SFTP access to server
-          remote-port: 221
+          remote-port: 22
