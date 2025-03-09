@@ -1,5 +1,13 @@
 <template>
-  <div class="home bg-darkBg flex items-center justify-center flex-col text-white">
+  <div>
+    <SectionHero/>
+    <SectionQuemSomos id="quem-somos"/>
+    <SectionServicos id="nossos-servicos"/>
+    <SectionConsultoria id="consultoria"/>
+    <SectionDestaques id="destaques"/>
+    <SectionDepoimentos id="depoimentos"/>
+  </div>
+  <!-- <div class="home bg-darkBg flex items-center justify-center flex-col text-white">
     <div class="container mx-auto text-center lg:gap-32 gap-16 flex flex-col items-center">
       
       <div class="flex gap-8 flex-col max-w-[600px]">
@@ -15,20 +23,13 @@
       </div>
       <img src="@/assets/images/logo.png" alt="Logo Perez Tour" class="lg:w-1/4 w-2/3 mx-auto">
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
-import { whatsApp } from '~/utils/datas/whatsapp.data'
 
 definePageMeta({
   layout: 'default'
 });
 
 </script>
-
-<style scoped>
-.home {
-  @apply bg-vector1 bg-no-repeat bg-contain lg:bg-auto
-}
-</style>

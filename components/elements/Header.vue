@@ -1,6 +1,6 @@
 <template>
-  <nav class="fixed w-full p-6 bg-gray-100 text-header h-header flex shadow-md z-10 transition-all ease-in-out duration-700">
-    <div class="flex items-center justify-between max-w-screen-xl mx-auto w-full">
+  <nav class="fixed w-full p-6 text-header h-header flex transition-all ease-in-out duration-700 z-40" :class="scrollY > 100 ? '!bg-header' : ''">
+    <div class="flex items-center justify-between container mx-auto w-full">
 
       <!-- Header logo -->
       <div>
@@ -13,12 +13,12 @@
           <IconsHamburguer />
         </button>
       </div>
-
+      
       <!-- Navbar -->
-      <div class="hidden md:block">
-        <ul class="flex space-x-8 text-sm font-sans items-center">
-          <li v-for="(item, index) in headerNav" :key="index">
-            <NuxtLink :to="item.link" >
+      <div class="hidden md:block bg-gradient text-white p-6 rounded-full">
+        <ul class="flex gap-2 text-sm font-sans items-center">
+          <li v-for="(item, index) in headerNav" :key="index" class="">
+            <NuxtLink :to="item.link" class="py-3 px-5 text-nowrap rounded-full" :class="router.currentRoute.value.fullPath == item.link ? 'bg-gradient-active' : ''">
               {{ item.title }}
             </NuxtLink>
           </li>          
@@ -28,7 +28,7 @@
   </nav>
 
   <!-- Drawer Menu -->
-  <aside class="p-5 transform top-0 left-0 w-full bg-gray-100 fixed h-full overflow-auto ease-in-out transition-all duration-300 z-0" :class="isOpen ? 'translate-y-header' : '-translate-y-full'">
+  <aside class="p-5 pt-header transform -top-header left-0 w-full bg-darkBg text-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30" :class="isOpen ? 'translate-y-header' : '-translate-y-full'">
     <ul class="divide-y font-sans">
       <li v-for="(item, index) in headerNav" :key="index">
         <NuxtLink :to="item.link" @click="isOpen = false" class="my-4 inline-block">
@@ -38,7 +38,7 @@
     </ul>
 
     <div class="follow">
-      <p class="italic font-sans text-sm">follow us:</p>
+      <p class="italic font-sans text-sm mt-4">Nos siga nas redes sociais:</p>
       <div class="social flex space-x-5 mt-4 ">
         <IconsSocialIcon v-for="(item, index) in socialLinks" :key="index" :icon="item.icon" :url="item.url" />
       </div>
@@ -59,6 +59,12 @@ const drawer = () => {
   isOpen.value = !isOpen.value;
 };
 
+const scrollY = ref(0);
+
+const updateScrollY = () => {
+  scrollY.value = window.scrollY;
+};
+
 watch(isOpen, (newValue) => {
   if (process.client) {
     if (newValue) {
@@ -77,9 +83,25 @@ const handleKeyDown = (e: KeyboardEvent) => {
 
 onMounted(() => {
   document.addEventListener("keydown", handleKeyDown);
+  window.addEventListener('scroll', updateScrollY);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateScrollY);
 });
 
 onUnmounted(() => {
   document.removeEventListener("keydown", handleKeyDown);
 });
 </script>
+
+<style scoped>
+.bg-gradient {
+  background: rgb(23,29,34);
+  background: linear-gradient(145deg, rgba(23,29,34,1) 0%, rgba(33,42,50,1) 100%);
+}
+.bg-gradient-active {
+  background: rgb(116,150,181);
+  background: linear-gradient(145deg, rgba(116,150,181,1) 0%, rgba(59,91,133,1) 100%);
+}
+</style>

@@ -4,11 +4,19 @@ export const headerNav = [
     link: '/'
   },
   {
-    title: 'Home Logged',
-    link: '/logged'
+    title: 'Quem somos',
+    link: '/#quem-somos'
   },
   {
-    title: 'Admin',
-    link: '/admin'
+    title: 'Destaques',
+    link: '/#destaques'
+  },
+  {
+    title: 'Consultoria',
+    link: '/#consultoria'
+  },
+  {
+    title: 'Contato',
+    link: '/#contato'
   },
 ]

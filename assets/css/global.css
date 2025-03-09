@@ -1,7 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Montserrat";
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/CenturyGothic-Bold.woff2') format('woff2'),
+      url('/fonts/CenturyGothic-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/CenturyGothic-Italic.woff2') format('woff2'),
+      url('/fonts/CenturyGothic-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/CenturyGothic.woff2') format('woff2'),
+      url('/fonts/CenturyGothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/fonts/CenturyGothic-BoldItalic.woff2') format('woff2'),
+      url('/fonts/CenturyGothic-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+html, body {
+  height: 100%
+}
 
 @layer components {
   .container {
@@ -10,10 +56,12 @@
 
   .btn {
     @apply flex justify-center items-center;
-    @apply gap-2 rounded-md px-6 py-2;
-    @apply text-sm font-semibold;
-    @apply bg-primary1 text-white;
+    @apply gap-2 rounded-md py-6 w-80;
+    @apply text-2xl font-bold uppercase;
+    @apply text-white;
     @apply transition-all ease-in-out duration-500;
+    background: rgb(116,150,181);
+    background: linear-gradient(145deg, rgba(116,150,181,1) 0%, rgba(59,91,133,1) 100%);
   }
   .btn:hover {
     @apply brightness-125;
@@ -26,6 +74,31 @@
   }
   .btn-disabled {
     @apply opacity-50 cursor-default;
+  }
+
+  .title-sections {
+    @apply text-3xl text-secondary2 font-semibold uppercase;
+  }
+  .subtitle-sections {
+    @apply text-6xl font-semibold uppercase;
+  }
+  .text-sections {
+    @apply text-base;
+  }
+  .card {
+    background: rgb(44,44,44);
+    background: linear-gradient(110deg, rgba(44,44,44,1) 0%, rgba(24,24,24,1) 50%, rgba(44,44,44,1) 100%);
+    @apply rounded-2xl bg-darkTheme px-10 pb-8 text-center;
+    @apply transition-all duration-300;
+    @apply border border-darkBg hover:border-secondary2 hover:border hover:scale-105;
+  }
+  .card h3 {
+    @apply text-2xl text-secondary2 font-semibold uppercase;
+    @apply mb-4 mt-6;
+  }
+  .card h4 {
+    @apply font-light;
+    @apply mb-4 mt-6;
   }
 }
 
@@ -43,12 +116,12 @@
   --color-warning: #f09924;
   --color-error: #ff0000;
   
-  --color-bg-header: var(--color-offWhite);
+  --color-bg-header: var(--color-darkBg);
   --color-text-header: var(--color-darkTheme);
-  --color-bg-footer: var(--color-darkTheme);
+  --color-bg-footer: var(--color-darkBg);
   --color-text-footer: var(--color-offWhite);
   --color-bg-button: var(--color-primary-1);
   --color-text-button: var(--color-offWhite);
 
-  --height-header: 90px;
+  --height-header: 100px;
 }

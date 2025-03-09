@@ -39,6 +39,10 @@ export default {
       backgroundImage: {
         'vector1': "url('/assets/images/vector1.png')"
       },
+      fontFamily: {
+        'sans': ['Montserrat'],
+        'brand': ['CenturyGothic'],
+      },
     },
   },
   plugins: [],

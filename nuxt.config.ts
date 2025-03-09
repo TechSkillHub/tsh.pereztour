@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     '@nuxt/icon',
+    '@nuxt/content'
   ],
   typescript: {
     strict: true,
