@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed w-full p-6 text-header h-header flex transition-all ease-in-out duration-700 z-40" :class="scrollY > 100 ? '!bg-header' : ''">
+  <nav class="fixed w-full p-6 text-header h-header flex transition-all ease-in-out duration-700 z-40" :class="scrollY > 100 ? '!bg-[#171717] !bg-opacity-80 backdrop-blur-sm' : ''">
     <div class="flex items-center justify-between container mx-auto w-full">
 
       <!-- Header logo -->

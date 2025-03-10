@@ -1,7 +1,7 @@
 <template>
   <ElementsHeader />
   
-  <NuxtPage class="min-h-[calc(100vh-var(--height-header))] pt-header bg-darkBg home" />
+  <NuxtPage class="bg-darkBg" />
   
   <!-- <ElementsWhatsApp />  -->
   
@@ -13,9 +13,7 @@
 </script>
 
 <style scoped>
-.home {
-  @apply bg-vector1 bg-no-repeat bg-contain lg:bg-auto bg-fixed
-}
+
 .page-enter-active, .page-leave-active {
   transition: all 0.4s;
 }

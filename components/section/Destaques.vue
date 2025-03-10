@@ -17,7 +17,7 @@
               <p class="block">
                 Preço de mercado:
               </p>
-              <p class="block text-3xl font-bold">
+              <p class="block text-3xl font-bold line-through decoration-secondary2">
                 R$ <span>{{ item.value }}</span>,00
               </p>
             </div>
@@ -46,5 +46,7 @@ const destaques = content.destaques
 </script>
 
 <style scoped>
-
+#destaques {
+  @apply bg-leftVector bg-left-bottom bg-no-repeat bg-contain lg:bg-auto;
+}
 </style>

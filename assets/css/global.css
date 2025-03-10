@@ -77,10 +77,12 @@ html, body {
   }
 
   .title-sections {
-    @apply text-3xl text-secondary2 font-semibold uppercase;
+    @apply text-xl;
+    @apply md:text-3xl text-secondary2 font-semibold uppercase;
   }
   .subtitle-sections {
-    @apply text-6xl font-semibold uppercase;
+    @apply text-3xl;
+    @apply md:text-6xl font-semibold uppercase;
   }
   .text-sections {
     @apply text-base;

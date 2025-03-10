@@ -37,7 +37,9 @@ export default {
         footer: 'var(--color-text-footer)',
       },
       backgroundImage: {
-        'vector1': "url('/assets/images/vector1.png')"
+        'vector1': "url('/assets/images/vector1.png')",
+        'rightVector': "url('/assets/images/bg-right.png')",
+        'leftVector': "url('/assets/images/bg-left.png')"
       },
       fontFamily: {
         'sans': ['Montserrat'],

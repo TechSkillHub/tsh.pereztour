@@ -2,7 +2,7 @@
   <div>
     <SectionHero/>
     <SectionQuemSomos id="quem-somos"/>
-    <SectionServicos id="nossos-servicos"/>
+    <SectionServicos id="servicos"/>
     <SectionConsultoria id="consultoria"/>
     <SectionDestaques id="destaques"/>
     <SectionDepoimentos id="depoimentos"/>

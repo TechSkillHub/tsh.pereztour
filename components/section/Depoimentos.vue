@@ -9,8 +9,10 @@
         </div>
       </div>
       <div class="grid md:grid-cols-2 justify-between gap-14 mt-16">
-        <div v-for="(item, index) in depoimentos.items" :key="index" class="bg-darkTheme rounded-2xl p-8 grid grid-flow-col gap-8">
-          <div class="rounded-full !w-40 !h-40 bg-grayTheme"></div>
+        <div v-for="(item, index) in depoimentos.items" :key="index" class="bg-darkTheme rounded-2xl p-8 grid md:grid-flow-col gap-8">
+          <div class="rounded-full w-40 h-40 bg-grayTheme mx-auto">
+
+          </div>
           <div class="w-full flex flex-col justify-between">
             <h4>{{ item.text }}</h4>
             <div class="text-right">
@@ -33,5 +35,7 @@ const depoimentos = content.depoimentos
 </script>
 
 <style scoped>
-
+#depoimentos {
+  @apply bg-rightVector bg-right-bottom bg-no-repeat bg-contain lg:bg-auto;
+}
 </style>

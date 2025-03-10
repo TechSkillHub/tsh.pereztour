@@ -34,5 +34,7 @@ const consultoria = content.consultoria
 </script>
 
 <style scoped>
-
+#consultoria {
+  @apply bg-rightVector bg-right bg-no-repeat bg-contain lg:bg-auto;
+}
 </style>

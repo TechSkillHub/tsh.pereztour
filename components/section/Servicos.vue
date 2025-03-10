@@ -30,5 +30,7 @@ const servicos = content.servicos
 </script>
 
 <style scoped>
-
+#servicos {
+  @apply bg-leftVector bg-left-bottom bg-no-repeat bg-contain lg:bg-auto;
+}
 </style>
