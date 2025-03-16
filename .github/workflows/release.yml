@@ -6,8 +6,8 @@ on:
       - release
 
 jobs:
-  SFTP-Deploy-Action:
-    name: SFTP-Deploy-Action
+  deploy:
+    name: Deploy to HML
     runs-on: ubuntu-latest
 
     steps:
@@ -22,17 +22,22 @@ jobs:
           npm install
           npm run generate
 
-      - name: List generated files
-        run: ls -l .output/public
-
-      - name: SFTP-Deploy-Action
-        uses: milanmk/actions-file-deployer@master
+      - name: Clean Remote Directory
+        uses: appleboy/ssh-action@master
         with:
-          remote-protocol: sftp
-          remote-host: ${{ secrets.FTP_HOST }}
-          remote-user: ${{ secrets.FTP_USER }}
-          remote-password: ${{ secrets.FTP_PASSWORD }}
-          source: ".output/public"
-          remote-path: /home/git/projects/hml.tsh.pereztour
-          remote-port: 22
-          clean-remote: true
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 22
+          script: |
+            rm -rf /home/git/projects/hml.tsh.pereztour/*
+
+      - name: Deploy to Droplet
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 22
+          source: ".output/public/*"
+          target: "/home/git/projects/hml.tsh.pereztour"
