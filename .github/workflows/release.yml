@@ -23,7 +23,7 @@ jobs:
           npm run generate
 
       - name: List generated files
-        run: ls -l dist
+        run: ls -l .output/public
 
       - name: SFTP-Deploy-Action
         uses: milanmk/actions-file-deployer@master
@@ -32,6 +32,7 @@ jobs:
           remote-host: ${{ secrets.FTP_HOST }}
           remote-user: ${{ secrets.FTP_USER }}
           remote-password: ${{ secrets.FTP_PASSWORD }}
+          source: ".output/public"
           remote-path: /home/git/projects/hml.tsh.pereztour
           remote-port: 22
           clean-remote: true
