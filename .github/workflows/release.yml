@@ -37,4 +37,3 @@ jobs:
           remote-password: ${{ secrets.FTP_PASSWORD }}
           remote-path: /home/git/projects/hml.tsh.pereztour
           remote-port: 22
-          clean-remote: true
