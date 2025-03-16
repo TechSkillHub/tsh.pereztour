@@ -25,9 +25,6 @@ jobs:
       - name: List generated files
         run: ls -l dist
 
-      - name: Enter path
-        run: cd dist
-
       - name: SFTP-Deploy-Action
         uses: milanmk/actions-file-deployer@master
         with:
