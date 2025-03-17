@@ -8,6 +8,7 @@
         </h1>
         <h2 class="lg:text-2xl text-lg">
           Enquanto preparamos uma melhor experiência para você, pode tirar suas dúvidas clicando no botão abaixo:
+          
         </h2>
         <NuxtLink :href="whatsApp" target="_blank" aria-label="WhatsApp Link">
           <FieldButton class="w-fit mx-auto">Quero saber mais!</FieldButton>
