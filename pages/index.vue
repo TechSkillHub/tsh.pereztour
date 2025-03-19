@@ -7,6 +7,7 @@
     <SectionDestaques id="destaques"/>
     <SectionDepoimentos id="depoimentos"/>
   </div>
+  
   <!-- <div class="home bg-darkBg flex items-center justify-center flex-col text-white">
     <div class="container mx-auto text-center lg:gap-32 gap-16 flex flex-col items-center">
       
