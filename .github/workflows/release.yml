@@ -50,7 +50,7 @@ jobs:
           remote-host: ${{ secrets.FTP_HOST }}
           remote-user: ${{ secrets.FTP_USER }}
           remote-password: ${{ secrets.FTP_PASSWORD }}
-
+          source: "."
           # Path for specific folder on server for files deployment
           remote-path: /home/git/projects/hml.tsh.pereztour
 
