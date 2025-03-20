@@ -56,4 +56,10 @@ export default defineNuxtConfig({
       ],
     },
   },
+  nitro: {
+    devServer: {
+      host: '0.0.0.0', // Permite acesso externo
+      allowedHosts: ['hml.pereztour.com.br'], // Adiciona o domínio à lista de permitidos
+    }
+  }
 })
