@@ -1,5 +1,5 @@
 <template>
-  <Icon name="material-symbols:menu" size="40" class="text-white" />
+  <Icon name="material-symbols:menu" size="40" class="text-offWhite" />
 </template>
 
 <script setup lang="ts">

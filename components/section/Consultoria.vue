@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center py-24">
-    <div class="container text-white grid md:grid-cols-2 grid-cols-1 gap-14">
+    <div class="container text-offWhite grid md:grid-cols-2 grid-cols-1 gap-14">
       <div>
         <img src="@/assets/images/servicos/img1.jpg" alt="Logo Perez Tour" class="rounded-2xl">
       </div>

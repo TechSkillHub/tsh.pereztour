@@ -58,19 +58,19 @@ html, body {
     @apply flex justify-center items-center;
     @apply gap-2 rounded-md py-6 w-80;
     @apply text-2xl font-bold uppercase;
-    @apply text-white;
+    @apply bg-theme2 text-offWhite;
     @apply transition-all ease-in-out duration-500;
-    background: rgb(116,150,181);
-    background: linear-gradient(145deg, rgba(116,150,181,1) 0%, rgba(59,91,133,1) 100%);
+    /* background: rgb(116,150,181);
+    background: linear-gradient(145deg, rgba(255,87,20,1) 0%, rgba(255,155,115,1) 100%); */
   }
   .btn:hover {
     @apply brightness-125;
   }
   .btn-outlined {
-    @apply bg-white text-darkTheme border-2 border-primary1;
+    @apply bg-white text-darkTheme border-2 border-theme1;
   }
   .btn-outlined:hover {
-    @apply text-primary1;
+    @apply text-theme1;
   }
   .btn-disabled {
     @apply opacity-50 cursor-default;
@@ -78,7 +78,7 @@ html, body {
 
   .title-sections {
     @apply text-xl;
-    @apply md:text-3xl text-secondary2 font-semibold uppercase;
+    @apply md:text-3xl text-theme3 font-semibold uppercase;
   }
   .subtitle-sections {
     @apply text-3xl;
@@ -88,14 +88,14 @@ html, body {
     @apply text-base;
   }
   .card {
-    background: rgb(44,44,44);
-    background: linear-gradient(110deg, rgba(44,44,44,1) 0%, rgba(24,24,24,1) 50%, rgba(44,44,44,1) 100%);
-    @apply rounded-2xl bg-darkTheme px-10 pb-8 text-center;
+    /* background: rgb(44,44,44);
+    background: linear-gradient(110deg, rgba(44,44,44,1) 0%, rgba(24,24,24,1) 50%, rgba(44,44,44,1) 100%); */
+    @apply rounded-2xl bg-offWhite text-theme1 px-10 pb-8 text-center;
     @apply transition-all duration-300;
-    @apply border border-darkBg hover:border-secondary2 hover:border hover:scale-105;
+    @apply border-2 border-offWhite hover:border-theme2 hover:border-2 hover:scale-105;
   }
   .card h3 {
-    @apply text-2xl text-secondary2 font-semibold uppercase;
+    @apply text-2xl text-theme2 font-semibold uppercase;
     @apply mb-4 mt-6;
   }
   .card h4 {
@@ -105,11 +105,10 @@ html, body {
 }
 
 :root {
-  --color-primary-1: #024476;
-  --color-primary-2: #4070A0;
-  --color-secondary-1: #4B83C2;
-  --color-secondary-2: #6FA6C5;
-  --color-offWhite: #f3f3f3;
+  --color-theme-1: #040926;
+  --color-theme-2: #ff5714;
+  --color-theme-3: #05a8aa;
+  --color-offWhite: #e8ebf7;
   --color-grayTheme: #9A9A98;
   --color-darkTheme: #363636;
   --color-darkBg: #171717;
@@ -120,9 +119,9 @@ html, body {
   
   --color-bg-header: var(--color-darkBg);
   --color-text-header: var(--color-darkTheme);
-  --color-bg-footer: var(--color-darkBg);
+  --color-bg-footer: var(--color-theme-1);
   --color-text-footer: var(--color-offWhite);
-  --color-bg-button: var(--color-primary-1);
+  --color-bg-button: var(--color-theme-1);
   --color-text-button: var(--color-offWhite);
 
   --height-header: 100px;

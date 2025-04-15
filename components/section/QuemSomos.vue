@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center py-24">
-    <div class="container text-white grid md:grid-cols-2 md:h-[590px] justify-between items-center gap-14">
+    <div class="container text-offWhite grid md:grid-cols-2 md:h-[590px] justify-between items-center gap-14">
       <div class="relative h-full hidden md:block">
         <img src="@/assets/images/quemSomos/img1.png" alt="Logo Perez Tour" class="absolute top-0 w-3/5">
         <img src="@/assets/images/quemSomos/img2.png" alt="Logo Perez Tour" class="absolute bottom-0 right-0 w-3/5">

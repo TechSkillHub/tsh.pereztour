@@ -10,10 +10,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary1: 'var(--color-primary-1)',
-        primary2: 'var(--color-primary-2)',
-        secondary1: 'var(--color-secondary-1)',
-        secondary2: 'var(--color-secondary-2)',
+        theme1: 'var(--color-theme-1)',
+        theme2: 'var(--color-theme-2)',
+        theme3: 'var(--color-theme-3)',
         offWhite: 'var(--color-offWhite)',
         grayTheme: 'var(--color-grayTheme)',
         darkTheme: 'var(--color-darkTheme)',

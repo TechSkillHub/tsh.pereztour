@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center py-24">
-    <div class="container text-white flex flex-col justify-between items-center gap-14">
+    <div class="container text-offWhite flex flex-col justify-between items-center gap-14">
       <div class="w-full text-center flex flex-col justify-between">
         <div class="flex flex-col gap-6">
           <h1 class="title-sections" v-html="destaques.title"></h1>
@@ -13,11 +13,11 @@
           <h3>{{ item.title }}</h3>
           <h4>{{ item.text }}</h4>
           <div>
-            <div class="bg-darkTheme rounded-full p-4 text-left leading-4 flex flex-col items-center justify-center gap-2 scale-75">
+            <div class="rounded-full p-4 text-left leading-4 flex flex-col items-center justify-center gap-2 scale-75">
               <p class="block">
                 Preço de mercado:
               </p>
-              <p class="block text-3xl font-bold line-through decoration-secondary2">
+              <p class="block text-3xl font-bold line-through decoration-theme2">
                 R$ <span>{{ item.value }}</span>,00
               </p>
             </div>

@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed w-full p-6 text-header h-header flex transition-all ease-in-out duration-700 z-40" :class="scrollY > 100 ? '!bg-[#171717] !bg-opacity-80 backdrop-blur-sm' : ''">
+  <nav class="fixed w-full p-6 text-header h-header flex transition-all ease-in-out duration-700 z-40" :class="scrollY > 100 ? '!bg-[#040926] !bg-opacity-80 backdrop-blur-sm' : ''">
     <div class="flex items-center justify-between container mx-auto w-full">
 
       <!-- Header logo -->
@@ -15,10 +15,10 @@
       </div>
       
       <!-- Navbar -->
-      <div class="hidden md:block bg-gradient text-white p-6 rounded-full">
+      <div class="hidden md:block bg-offWhite text-theme1 font-bold p-6 rounded-full">
         <ul class="flex gap-2 text-sm font-sans items-center">
           <li v-for="(item, index) in headerNav" :key="index" class="">
-            <NuxtLink :to="item.link" class="py-3 px-5 text-nowrap rounded-full" :class="router.currentRoute.value.fullPath == item.link ? 'bg-gradient-active' : ''">
+            <NuxtLink :to="item.link" class="py-3 px-5 text-nowrap rounded-full" :class="router.currentRoute.value.fullPath == item.link ? 'bg-theme2' : ''">
               {{ item.title }}
             </NuxtLink>
           </li>          
@@ -28,7 +28,7 @@
   </nav>
 
   <!-- Drawer Menu -->
-  <aside class="p-5 pt-header transform -top-header left-0 w-full bg-darkBg text-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30" :class="isOpen ? 'translate-y-header' : '-translate-y-full'">
+  <aside class="p-5 pt-header transform -top-header left-0 w-full bg-darkBg text-offWhite fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30" :class="isOpen ? 'translate-y-header' : '-translate-y-full'">
     <ul class="divide-y font-sans">
       <li v-for="(item, index) in headerNav" :key="index">
         <NuxtLink :to="item.link" @click="isOpen = false" class="my-4 inline-block">

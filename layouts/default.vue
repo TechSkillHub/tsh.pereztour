@@ -1,7 +1,7 @@
 <template>
   <ElementsHeader />
   
-  <NuxtPage class="bg-darkBg" />
+  <NuxtPage class="bg-theme1" />
   
   <!-- <ElementsWhatsApp />  -->
   
