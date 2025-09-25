@@ -2,7 +2,7 @@
 import { title, url, gtm } from "./utils/constants/seo.constant";
 
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
   plugins: ["~/plugins/vee-validate.client.ts"],

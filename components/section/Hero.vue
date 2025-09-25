@@ -15,7 +15,6 @@
 
 <script setup>
 import { useContentCustom } from '~/composables/useCustomContent'
-
 const content = await useContentCustom()
 const hero = content.hero
 
