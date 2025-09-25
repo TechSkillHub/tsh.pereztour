@@ -15,26 +15,39 @@ jobs:
       - name: Set up Node.js 
         uses: actions/setup-node@v2 
         with: 
-          node-version: '22' 
+          node-version: '18'
 
-      - name: Install dependencies 
-        run: npm install 
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential python3
+
+      - name: Install dependencies with fallback
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --legacy-peer-deps --force || true
+          
+          # Fallback manual para oxc-parser
+          if [ ! -f node_modules/oxc-parser/parser.linux-x64-gnu.node ]; then
+            mkdir -p node_modules/oxc-parser
+            curl -L https://github.com/oxc-project/oxc/releases/download/nightly/parser.linux-x64-gnu.node -o node_modules/oxc-parser/parser.linux-x64-gnu.node
+          fi
+          
+          npm rebuild --update-binary
 
       - name: Generate static site 
         run: |
-          npm run generate:prod || true
-          pkill -f 'nuxt' || true
- 
+          npx nuxt generate --fallback
+          ls -la .output/public  # Verificação
+
       - name: Upload artifact 
         uses: actions/upload-artifact@v4 
         with: 
           name: nuxt-dist 
           path: .output/public 
+          if-no-files-found: error
 
   deploy: 
     needs: build 
     runs-on: ubuntu-latest 
-
     steps: 
       - name: Download artifact 
         uses: actions/download-artifact@v4 
@@ -50,4 +63,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }} 
           source: "nuxt-dist/*" 
           target: "/var/www/pereztour.tshdevelop.com/dist" 
-          strip_components: 1 
+          strip_components: 1
