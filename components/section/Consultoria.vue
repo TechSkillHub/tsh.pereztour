@@ -1,13 +1,13 @@
 <template>
   <div class="flex items-center py-24">
-    <div class="container text-offWhite grid md:grid-cols-2 grid-cols-1 gap-14">
-      <div>
-        <img src="@/assets/images/servicos/img1.jpg" alt="Logo Perez Tour" class="rounded-2xl">
+    <div class="container text-offWhite md:grid md:grid-cols-3 gap-14">
+      <div class="w-full mb-8">
+        <img src="@/assets/images/servicos/img1.jpg" alt="Logo Perez Tour" class="rounded-2xl !w-10/12 md:!w-full mx-auto">
       </div>
-      <div class=" text-center md:text-left h-full flex flex-col justify-between">
-        <div class="flex flex-col gap-6">
+      <div class=" text-center md:text-left h-full flex flex-col justify-between col-span-2">
+        <div class="flex flex-col gap-6 mb-10">
           <h1 class="title-sections" v-html="consultoria.title"></h1>
-          <h2 class="subtitle-sections" v-html="consultoria.subtitle"></h2>
+          <!-- <h2 class="subtitle-sections" v-html="consultoria.subtitle"></h2> -->
           <p class="text-sections" v-html="consultoria.text"></p>
         </div>
         <div class="grid md:grid-cols-2 justify-between gap-8">

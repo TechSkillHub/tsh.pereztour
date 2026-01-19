@@ -1,33 +1,36 @@
 hero: {
-  title: 'Sonhe,<br/>Realize,<br/>Economize!',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod. Maecenas sed est mollis, convallis nisi convallis, imperdiet massa.',
+  title: 'Sonhar é realizar,<br/>viajar é economizar',
+  # text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod. Maecenas sed est mollis, convallis nisi convallis, imperdiet massa.',
 }
 quemSomos: {
   title: 'Quem somos',
-  subtitle: 'Lorem ipsum dolor sit amet',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod. Maecenas sed est mollis, convallis nisi convallis, imperdiet massa. Proin ipsum nunc, lacinia ac faucibus quis, ullamcorper non metus. Aliquam viverra volutpat feugiat. Donec fringilla aliquam mollis. Sed cursus quam nibh, quis placerat metus dapibus sed.<br/>Nam varius nisi in nisi maximus blandit sit amet ac tellus.',
+  # subtitle: 'Lorem ipsum dolor sit amet',
+  text: 'A PerezTour nasceu com o intuito de facilitar a vida dos viajantes, pessoas assim como eu que amam viajar, e gostam de organizar suas viagens sem preocupações, nós estamos aqui para facilitar sua vida, organizaremos sua viagem, e planejaremos de acordo com o seu destino, te daremos suporte do início ao fim, esse é o nosso diferencial, nossos concorrentes finalizam o atendimento quando o cliente finaliza o pagamento, nós, iniciamos o nosso atendimento quando nosso cliente finaliza o pagamento, e terminamos o nosso atendimento quando ele termina sua viagem.',
+  missao: 'Nossa missão é tornar cada viagem uma experiência única, livre de preocupações e marcada por qualidade e conforto. Na Perez Consulting Tour, acreditamos que viajar é mais que um deslocamento; é uma oportunidade de enriquecer a vida, e estamos aqui para  judar nossos clientes a realizarem esse sonho com tranquilidade e economia. Oferecemos acompanhamento completo, do planejamento até o retorno, garantindo uma experiência sem perrengues e com todo o suporte necessário para que cada etapa da jornada seja memorável.',
+  visao: 'Nossa visão é revolucionar o setor de turismo no Brasil, trazendo uma abordagem que une excelência no atendimento e personalização, para que nossos clientes vivenciem o melhor de cada destino, sem imprevistos e com confiança.',
+  valores: 'Nossos valores estão enraizados na honestidade, transparência e no compromisso com a satisfação dos nossos clientes. Atendemos com empatia e dedicação, proporcionando uma parceria verdadeira, em que todos saem ganhando. Na Perez Consulting Tour, cada viagem é planejada com  cuidado e atenção, refletindo o nosso respeito pelos sonhos e pelas necessidades de quem confia em nós para suas viagens',
   cta: 'Dúvidas?',
   link: ''
 }
 servicos: {
   title: 'Nossos serviços',
-  subtitle: 'Lorem ipsum dolor sit<br/>amet, consectetur',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis<br/> accumsan euismod. Maecenas sed est mollis, convallis nisi convallis, imperdiet massa.',
+  # subtitle: 'Lorem ipsum dolor sit<br/>amet, consectetur',
+  text: 'Somos uma agência de viagens completa, fornecemos passagens aéreas, pacotes de viagens, hospedagens, Transfer, passeios pelo mundo inteiro.',
   items: [
-    { icon: 'fontisto:plane-ticket', title: 'Serviço 1', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { icon: 'fontisto:plane-ticket', title: 'Serviço 2', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { icon: 'fontisto:plane-ticket', title: 'Serviço 3', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { icon: 'fontisto:plane-ticket', title: 'Passagens aéreas ', text: 'Constitui-se em emissão de passagens aéreas nacional e mundial, para qualquer lugar do mundo que você queira viajar.' },
+    { icon: 'fontisto:plane-ticket', title: 'Pacotes viagens', text: 'Constitui-se em um pacote completo personalizado para o seu perfil de viajante, estruturaremos sua viagem, montaremos um roteiro, tudo personalizado exclusivo para você.' },
+    { icon: 'fontisto:plane-ticket', title: 'Assessoria para visto americano', text: 'Constitui-se em uma preparação para o visto americano, nos vamos te instruir e te preparar para a entrevista no consulado, fazemos toda a parte de preenchimento e envio de documentação, o que você precisa fazer é somente enviar informações para nós.' },
   ]
 }
 consultoria: {
-  title: 'Consultoria',
-  subtitle: 'Lorem ipsum dolor sit<br/>amet, consectetur',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod. Maecenas sed est mollis, convallis nisi convallis, imperdiet massa.',
+  title: 'Gestão High-Ticket',
+  # subtitle: 'Lorem ipsum dolor sit<br/>amet, consectetur',
+  text: 'Esse é o nosso serviço premium do nosso portfólio, onde firmaremos um contrato de 12 meses, para que eu passe a gerenciar todas os seus pontos e milhas aéreas acumuladas nos seus cartões de crédito, eu potencializarei seu acúmulo, indicarei melhores cartões para seu perfil de gastos, planejarei suas viagens desde a emissão até o seu retorno, você tem total acesso a mim para viajar com suas próprias milhas, você viaja e quem executa somos nós.',
   items: [
-    { icon: 'fontisto:plane', title: 'Consultoria 1', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { icon: 'fontisto:plane', title: 'Consultoria 2', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { icon: 'fontisto:plane', title: 'Consultoria 3', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { icon: 'fontisto:plane', title: 'Consultoria 4', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { icon: 'fontisto:plane', title: 'Plano Brasil', text: 'Ideal para famílias que pretendem viajar 2 ou mais vezes no ano dentro do Brasil, de acordo com o potencial de acúmulo, seja Nordeste, Sudeste, Sul e centro-oeste.' },
+    { icon: 'fontisto:plane', title: 'Plano Americas', text: 'Ideal para famílias que pretendem viajar de 3 ou mais vezes, de acordo com o potencial de acúmulo, entre Brasil e Américas do Sul, podendo mesclar com cidades nacionais.' },
+    { icon: 'fontisto:plane', title: 'Plano Americas/Europa', text: 'Ideal para famílias que pretendem viajar 3 ou mais vezes no ano pela Américas e Europa, de acordo com o potencial de acúmulo, podendo mesclar entre Américas (Incluindo EUA) e cidades pela Europa.' },
+    { icon: 'fontisto:plane', title: 'Plano Mundo', text: 'Ideal para famílias que pretendem viajar 3 ou mais vezes no ano pelo mundo inteiro, de acordo com o potencial de acúmulo, podendo mesclar entre Américas, Europa, Ásia e Oriente médio.' },
   ]
 }
 destaques: {

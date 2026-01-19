@@ -8,15 +8,23 @@ export const headerNav = [
     link: '/#quem-somos'
   },
   {
-    title: 'Destaques',
-    link: '/#destaques'
+    title: 'Serviços',
+    link: '/#servicos'
   },
   {
     title: 'Consultoria',
     link: '/#consultoria'
   },
   {
-    title: 'Contato',
-    link: '/#contato'
+    title: 'Destaques',
+    link: '/#destaques'
   },
+  {
+    title: 'Depoimentos',
+    link: '/#depoimentos'
+  },
+  // {
+  //   title: 'Contato',
+  //   link: '/#contato'
+  // },
 ]

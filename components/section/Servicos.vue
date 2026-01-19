@@ -13,7 +13,7 @@
           <div class="bg-offWhite rounded-full border-theme2 border w-fit h-fit p-4 mx-auto -mt-10">
             <Icon :name="item.icon" size="48" class="block" />
           </div>
-          <h3>{{ item.title }}</h3>
+          <h3 class="h-16">{{ item.title }}</h3>
           <h4>{{ item.text }}</h4>
         </div>
       </div>
