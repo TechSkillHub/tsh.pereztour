@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Montserrat e carregada no <head> (nuxt.config.ts) com preconnect e apenas
+   os pesos usados. @import aqui bloqueava o render em cascata. */
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +7,12 @@
 
 @font-face {
   font-family: "Montserrat";
+  font-style: normal;
+  /* fonte variavel: um arquivo cobre 300..700 */
+  font-weight: 300 700;
   font-display: swap;
+  src: url('/fonts/montserrat-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -58,7 +64,7 @@ html, body {
     @apply flex justify-center items-center;
     @apply gap-2 rounded-md py-6 w-80;
     @apply text-2xl font-bold uppercase;
-    @apply bg-theme2 text-offWhite;
+    @apply bg-theme2 text-theme1;
     @apply transition-all ease-in-out duration-500;
     /* background: rgb(116,150,181);
     background: linear-gradient(145deg, rgba(255,87,20,1) 0%, rgba(255,155,115,1) 100%); */
@@ -95,18 +101,40 @@ html, body {
     @apply border-2 border-offWhite hover:border-theme2 hover:border-2 hover:scale-105;
   }
   .card h3 {
-    @apply text-2xl text-theme2 font-semibold uppercase;
+    @apply text-2xl text-theme2Dark font-semibold uppercase;
     @apply mb-4 mt-6;
   }
   .card h4 {
     @apply font-light;
     @apply mb-4 mt-6;
   }
+
+  /* Cards: carrossel horizontal no mobile, grid no desktop.
+     O -mx-6/px-6 faz o carrossel sangrar ate a borda da tela sem tirar o
+     respiro do primeiro e do ultimo card. */
+  .cards-scroll {
+    @apply -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-5;
+    @apply md:mx-0 md:grid md:gap-8 md:overflow-visible md:px-0 md:pb-0;
+    scrollbar-width: thin;
+  }
+  /* Aplicar em cada card do carrossel. Nao usar seletor de filho: perde
+     para .card na cascata (mesma layer e mesma especificidade). */
+  .cards-scroll-item {
+    @apply w-[78%] shrink-0 snap-center sm:w-[46%] md:w-auto;
+  }
+  /* Onde o icone do card sobe para fora (-mt-10), o overflow-x recorta o
+     topo: este padding devolve o espaco no mobile. */
+  .cards-scroll-icone {
+    @apply pt-14 md:pt-0;
+  }
 }
 
 :root {
   --color-theme-1: #040926;
   --color-theme-2: #ff5714;
+  /* Laranja escurecido SO para texto sobre fundo claro (contraste 4.71 contra
+     2.67 do laranja puro). Em fundo escuro use theme2 normal, que ja da 6.18. */
+  --color-theme-2-dark: #bc3a0a;
   --color-theme-3: #05a8aa;
   --color-offWhite: #e8ebf7;
   --color-grayTheme: #9A9A98;

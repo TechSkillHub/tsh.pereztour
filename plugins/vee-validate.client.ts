@@ -3,8 +3,16 @@ import { defineRule, configure } from "vee-validate";
 export default defineNuxtPlugin(() => {
   console.log('aqui 2x');
   
-  defineRule("required", (value: string) => {
-    if (!value || !value.length) {
+  defineRule("required", (value: unknown) => {
+    // Checkbox (LGPD) e outros valores booleanos: "required" deve exigir `true`,
+    // e não cair em `.length` (que não existe em boolean/number e sempre falhava).
+    if (typeof value === "boolean") {
+      return value === true ? true : "Este campo é obrigatório";
+    }
+    if (typeof value === "number") {
+      return Number.isFinite(value) ? true : "Este campo é obrigatório";
+    }
+    if (!value || !(value as string).length) {
       return "Este campo é obrigatório";
     }
     return true;
@@ -31,6 +39,15 @@ export default defineNuxtPlugin(() => {
     // Verifica se o e-mail é válido
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
       return "Por favor, digite um e-mail válido";
+    }
+    return true;
+  });
+
+  // Verifica se o WhatsApp está completo (DDD + número)
+  defineRule("whatsapp", (value: string) => {
+    const digits = (value || "").replace(/\D/g, "");
+    if (digits.length < 10) {
+      return "Informe um WhatsApp válido com DDD";
     }
     return true;
   });

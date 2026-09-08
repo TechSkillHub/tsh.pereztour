@@ -1,11 +1,14 @@
 <template>
   <div>
     <SectionHero/>
+    <SectionCotacao id="cotacao"/>
     <SectionQuemSomos id="quem-somos"/>
     <SectionServicos id="servicos"/>
     <SectionConsultoria id="consultoria"/>
     <SectionDestaques id="destaques"/>
-    <SectionDepoimentos id="depoimentos"/>
+    <!-- Depoimentos desativado ate o cliente enviar depoimentos reais (o conteudo atual e Lorem ipsum).
+         Para religar: descomentar aqui E o item "Depoimentos" em utils/datas/headerNav.data.ts -->
+    <!-- <SectionDepoimentos id="depoimentos"/> -->
   </div>
   
   <!-- <div class="home bg-darkBg flex items-center justify-center flex-col text-white">

@@ -1,3 +1,9 @@
 <template>
-  <img src="@/assets/images/logo.png" alt="Logo Perez Tour" class="h-[52px]">
+  <img
+    src="@/assets/images/logo.png"
+    alt="Perez Consulting Tour"
+    width="135"
+    height="52"
+    class="h-[52px] w-auto"
+  >
 </template>

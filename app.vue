@@ -1,6 +1,7 @@
 <template>
   <ElementsModal />
   <ElementsLoading />
+  <CotacaoModal />
   <div>
     <NuxtLayout />
   </div>
@@ -8,9 +9,10 @@
 
 <script setup lang="ts">
 import { generateMeta } from '@/utils/constants/generateMeta';
+import { title } from '@/utils/constants/seo.constant';
 
 useHead({
-  title: 'Perez Consulting Tour',
+  title,
   meta: generateMeta(),
   htmlAttrs: {
     lang: 'pt-BR',

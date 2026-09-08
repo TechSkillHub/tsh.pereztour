@@ -1,9 +1,11 @@
 <template>
   <ElementsHeader />
   
-  <NuxtPage class="bg-theme1" />
+  <main>
+    <NuxtPage class="bg-theme1" />
+  </main>
   
-  <!-- <ElementsWhatsApp />  -->
+  <ElementsWhatsApp />
   
   <ElementsFooter/>
 </template>

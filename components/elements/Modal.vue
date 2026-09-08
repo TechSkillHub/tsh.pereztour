@@ -21,12 +21,12 @@
           </div>
   
           <div class="modal_footer">
-            <ElementsFieldButton v-if="modal.message.redirect" class="btn" fullWidth @click="router.push(modal.message.redirect?.link!), closeModal()">
+            <FieldButton v-if="modal.message.redirect" class="btn" fullWidth @click="router.push(modal.message.redirect?.link!), closeModal()">
               {{ modal.message.redirect.btnText }}
-            </ElementsFieldButton>
-            <ElementsFieldButton class="btn btn-outlined" :fullWidth="modal.message.redirect ? true : false" @click="closeModal()">
+            </FieldButton>
+            <FieldButton class="btn btn-outlined" :fullWidth="modal.message.redirect ? true : false" @click="closeModal()">
               {{ modal.message.btnText || 'Close' }}
-            </ElementsFieldButton>
+            </FieldButton>
           </div>
         </div>
       </div>

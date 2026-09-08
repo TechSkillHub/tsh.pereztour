@@ -9,7 +9,7 @@
       
       <!-- Mobile toggle -->
       <div class="md:hidden">
-        <button @click="drawer">
+        <button type="button" aria-label="Abrir menu de navegação" @click="drawer">
           <IconsHamburguer />
         </button>
       </div>
@@ -31,13 +31,13 @@
   <aside class="p-5 pt-header transform -top-header left-0 w-full bg-darkBg text-offWhite fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30" :class="isOpen ? 'translate-y-header' : '-translate-y-full'">
     <ul class="divide-y font-sans">
       <li v-for="(item, index) in headerNav" :key="index">
-        <NuxtLink :to="item.link" @click="isOpen = false" class="my-4 inline-block">
+        <NuxtLink :to="item.link" @click="isOpen = false" class="block py-4">
           {{ item.title }}
         </NuxtLink>
       </li>
     </ul>
 
-    <div class="follow">
+    <div v-if="socialLinks.length" class="follow">
       <p class="italic font-sans text-sm mt-4">Nos siga nas redes sociais:</p>
       <div class="social flex space-x-5 mt-4 ">
         <IconsSocialIcon v-for="(item, index) in socialLinks" :key="index" :icon="item.icon" :url="item.url" />

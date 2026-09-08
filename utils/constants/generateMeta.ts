@@ -1,39 +1,41 @@
+import { title, description, siteName, url } from './seo.constant'
+
+// Fonte unica dos metadados: seo.constant.ts.
+// Para mudar titulo/descricao do site, edite la, nao aqui.
 const defaultMeta = {
-  pageTitle: 'Perez Consulting Tour',
-  description: 'Sonhar, é realizar! Viajar é economizar!',
-  siteName: 'Perez Consulting Tour',
+  pageTitle: title,
+  description,
+  siteName,
   contentType: 'website',
-  url: 'https://www.pereztour.com.br',
-  socialBanner: 'https://www.pereztour.com.br/social_banner.jpg', //Image on public
+  url: url + '/',
+  socialBanner: url + '/social_banner.jpg', // arquivo em public/
   bannerWidth: '740',
   bannerHeight: '300',
   twitterCardType: 'summary_large_image'
 }
 
 export const generateMeta = (metaOverrides = {}) => {
-  const generateMeta = {...defaultMeta, ...metaOverrides}
-  
+  const meta = { ...defaultMeta, ...metaOverrides }
+
   return [
-    { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'description', content: generateMeta.description },
+    { name: 'description', content: meta.description },
 
     // Open Graph
-    { property: 'og:site_name', content: generateMeta.siteName },
-    { property: 'og:type', content: generateMeta.contentType },
-    { property: 'og:url', content: generateMeta.url },
-    { property: 'og:title', content: generateMeta.pageTitle },
-    { property: 'og:description', content: generateMeta.description },
-    { property: 'og:image', content: generateMeta.socialBanner },
-    { property: 'og:image:width', content:generateMeta.bannerWidth  },
-    { property: 'og:image:height', content: generateMeta.bannerHeight },
+    { property: 'og:locale', content: 'pt_BR' },
+    { property: 'og:site_name', content: meta.siteName },
+    { property: 'og:type', content: meta.contentType },
+    { property: 'og:url', content: meta.url },
+    { property: 'og:title', content: meta.pageTitle },
+    { property: 'og:description', content: meta.description },
+    { property: 'og:image', content: meta.socialBanner },
+    { property: 'og:image:width', content: meta.bannerWidth },
+    { property: 'og:image:height', content: meta.bannerHeight },
 
     // Twitter
-    { name: 'twitter:site', content: generateMeta.siteName  },
-    { name: 'twitter:card', content: generateMeta.twitterCardType },
-    { name: 'twitter:url', content: generateMeta.url },
-    { name: 'twitter:title', content: generateMeta.pageTitle },
-    { name: 'twitter:description', content: generateMeta.description },
-    { name: 'twitter:image', content: generateMeta.socialBanner },
+    { name: 'twitter:card', content: meta.twitterCardType },
+    { name: 'twitter:url', content: meta.url },
+    { name: 'twitter:title', content: meta.pageTitle },
+    { name: 'twitter:description', content: meta.description },
+    { name: 'twitter:image', content: meta.socialBanner },
   ]
 }

@@ -12,6 +12,7 @@ export default {
       colors: {
         theme1: 'var(--color-theme-1)',
         theme2: 'var(--color-theme-2)',
+        theme2Dark: 'var(--color-theme-2-dark)',
         theme3: 'var(--color-theme-3)',
         offWhite: 'var(--color-offWhite)',
         grayTheme: 'var(--color-grayTheme)',
@@ -36,9 +37,9 @@ export default {
         footer: 'var(--color-text-footer)',
       },
       backgroundImage: {
-        'vector1': "url('/assets/images/vector1.png')",
-        'rightVector': "url('/assets/images/bg-right.png')",
-        'leftVector': "url('/assets/images/bg-left.png')"
+        'vector1': "url('/assets/images/vector1.webp')",
+        'rightVector': "url('/assets/images/bg-right.webp')",
+        'leftVector': "url('/assets/images/bg-left.webp')"
       },
       fontFamily: {
         'sans': ['Montserrat'],

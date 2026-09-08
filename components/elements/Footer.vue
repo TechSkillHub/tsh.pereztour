@@ -4,15 +4,12 @@
       <div class="md:w-1/3 md:justify-start">
         <LogosBrand/>
       </div>
-      <div>
-        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere arcu ut turpis elementum pellentesque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-      </div>
       <div class="md:w-1/3 flex justify-end gap-3">
         <IconsSocialIcon v-for="(item, index) in socialLinks" :key="index" :icon="item.icon" :url="item.url" />
       </div>
     </div>
     <div class="container mt-8 border-t border-offWhite pt-4">
-      <small class="block text-center">© 2025 Perez Tour Consulting. Todos os direitos reservados.</small>
+      <small class="block text-center">© {{ ano }} Perez Tour Consulting. Todos os direitos reservados.</small>
     </div>
   </div>
 </template>
@@ -20,6 +17,8 @@
 <script setup lang="ts">
 import { socialLinks } from '~/utils/datas/socialMedia.data';
 
+// ano corrente para o copyright nao envelhecer sozinho
+const ano = new Date().getFullYear();
 </script>
 
 <style scoped>

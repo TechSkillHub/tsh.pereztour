@@ -4,10 +4,26 @@
       <div class="text-offWhite w-full md:w-1/2 text-center md:text-left">
         <h1 class="font-bold md:text-8xl text-5xl" v-html="hero.title"></h1>
         <p class="my-8">{{ hero.text }}</p>
-        <FieldButton class="mx-auto md:mx-0">QUERO ECONOMIZAR!</FieldButton>
+        <NuxtLink
+          :href="buildCtaWhatsAppLink('hero')"
+          target="_blank"
+          rel="noopener"
+          class="inline-block mx-auto md:mx-0"
+        >
+          <FieldButton type="button">QUERO ECONOMIZAR!</FieldButton>
+        </NuxtLink>
       </div>
       <div class="text-offWhite w-full md:w-1/2 relative">
-        <img src="@/assets/images/banner.png" alt="Logo Perez Tour" class="max-w-[90%] m-auto">
+        <img
+          src="@/assets/images/banner.webp"
+          alt="Mala, chapéu e câmera fotográfica prontos para viagem"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+          width="600"
+          height="600"
+          class="max-w-[90%] m-auto"
+        >
       </div>
     </div>
   </div>
@@ -15,6 +31,8 @@
 
 <script setup>
 import { useContentCustom } from '~/composables/useCustomContent'
+import { buildCtaWhatsAppLink } from '~/utils/datas/whatsapp.data'
+
 const content = await useContentCustom()
 const hero = content.hero
 

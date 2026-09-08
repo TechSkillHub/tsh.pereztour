@@ -1,37 +1,53 @@
 <template>
-  <div class="flex items-center py-24">
-    <div class="container text-offWhite flex flex-col justify-between items-center gap-14">
-      <div class="w-full text-center flex flex-col justify-between">
-        <div class="flex flex-col gap-6">
-          <h1 class="title-sections" v-html="destaques.title"></h1>
-          <h2 class="subtitle-sections" v-html="destaques.subtitle"></h2>
-          <p class="text-sections" v-html="destaques.text"></p>
-        </div>
+  <div class="py-24 text-offWhite">
+    <div class="container">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="title-sections mb-4" v-html="destaques.title"></h2>
+        <p class="subtitle-sections mb-6" v-html="destaques.subtitle"></p>
+        <p class="text-sections font-light leading-relaxed" v-html="destaques.text"></p>
       </div>
-      <div class="grid md:grid-cols-3 justify-between gap-14 mt-10">
-        <div v-for="(item, index) in destaques.items" :key="index" class="card">
-          <h3>{{ item.title }}</h3>
-          <h4>{{ item.text }}</h4>
-          <div>
-            <div class="rounded-full p-4 text-left leading-4 flex flex-col items-center justify-center gap-2 scale-75">
-              <p class="block">
-                Preço de mercado:
-              </p>
-              <p class="block text-3xl font-bold line-through decoration-theme2">
-                R$ <span>{{ item.value }}</span>,00
-              </p>
-            </div>
-            <div class="rounded-full mt-4 btn flex-col p-4 w-full gap-0">
-              <p class="block text-lg">
-                Preço PEREZ TOUR:
-              </p>
-              <p class="block text-4xl">
-                R$ <span class="text-5xl">{{ item.ourValue }}</span>,00
-              </p>
-            </div>
-            
+
+      <div class="cards-scroll md:grid-cols-3 mt-16">
+        <article
+          v-for="item in destaques.items"
+          :key="item.title"
+          class="cards-scroll-item relative flex flex-col overflow-hidden rounded-2xl bg-offWhite text-theme1"
+        >
+          <!-- selo de economia -->
+          <span
+            class="absolute right-0 top-6 rounded-l-full bg-theme3 py-2 pl-5 pr-6 text-sm font-semibold uppercase tracking-wide text-theme1"
+          >
+            Economize R$ {{ item.economia }}<span aria-hidden="true">*</span>
+          </span>
+
+          <div class="flex flex-1 flex-col px-8 pb-8 pt-20">
+            <h3 class="text-3xl font-semibold uppercase leading-tight text-theme2Dark">{{ item.title }}</h3>
+            <p class="mt-4 flex-1 font-light leading-relaxed">{{ item.text }}</p>
+
+            <p class="mt-8 text-sm text-darkTheme">
+              Comprando por conta própria
+              <span class="ml-1 font-semibold line-through decoration-theme2 decoration-2">R$ {{ item.value }},00</span>
+            </p>
           </div>
-        </div>
+
+          <!-- preco final: o numero que importa, em bloco solido -->
+          <div class="bg-theme2 px-8 py-6 text-theme1">
+            <p class="text-xs font-semibold uppercase tracking-widest">Com a Perez Tour</p>
+            <p class="mt-1 text-4xl font-bold leading-none">
+              R$ {{ item.ourValue }}<span class="text-2xl">,00</span>
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <p class="mx-auto mt-10 max-w-3xl text-center text-sm text-grayTheme">
+        <span aria-hidden="true">*</span> {{ destaques.nota }}
+      </p>
+
+      <div class="mt-12 flex justify-center">
+        <FieldButton type="button" class="!w-auto max-w-full !px-6 !text-lg md:whitespace-nowrap md:!px-14 md:!text-2xl" @click="cotacao.openModal('pacote')">
+          QUERO UMA COTAÇÃO ASSIM
+        </FieldButton>
       </div>
     </div>
   </div>
@@ -39,10 +55,11 @@
 
 <script setup>
 import { useContentCustom } from '~/composables/useCustomContent'
+import { useCotacaoStore } from '~/stores/cotacao.store'
 
 const content = await useContentCustom()
 const destaques = content.destaques
-
+const cotacao = useCotacaoStore()
 </script>
 
 <style scoped>

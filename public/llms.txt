@@ -1,0 +1,37 @@
+# Perez Consulting Tour
+
+> Agência de viagens brasileira que planeja a viagem do início ao fim: emissão de passagens aéreas, pacotes, hospedagem e gestão de pontos e milhas. O atendimento e a cotação acontecem pelo WhatsApp.
+
+A Perez Consulting Tour organiza e planeja viagens de acordo com o destino do cliente, com suporte do início ao fim. O diferencial declarado pela agência: o atendimento não termina no pagamento, e sim quando o cliente termina a viagem.
+
+## Páginas
+
+- [Perez Consulting Tour](https://pereztour.com.br/): página única com serviços, cotação, diferenciais e planos de gestão de milhas.
+- [Quem somos](https://pereztour.com.br/#quem-somos): missão, visão, valores e o diferencial de atendimento.
+- [Serviços](https://pereztour.com.br/#servicos): passagens aéreas, pacotes e assessoria para visto americano.
+- [Peça sua cotação](https://pereztour.com.br/#cotacao): formulário de cotação em 5 etapas.
+- [Gestão High-Ticket](https://pereztour.com.br/#consultoria): serviço premium de gestão de pontos e milhas.
+- [Destaques](https://pereztour.com.br/#destaques): comparativos de preço entre comprar por conta própria e comprar com a agência.
+
+## Serviços
+
+- **Passagens aéreas**: emissão nacional e internacional.
+- **Pacotes de viagem**: roteiro completo e personalizado por perfil de viajante.
+- **Assessoria para visto americano**: preparação para a entrevista no consulado, preenchimento e envio de documentação.
+- **Gestão High-Ticket**: serviço premium com contrato de 12 meses para gerenciar os pontos e milhas acumulados nos cartões de crédito do cliente. Planos por alcance: Brasil, Américas, Américas/Europa e Mundo.
+
+## Como pedir uma cotação
+
+O site tem um formulário de cotação em 5 etapas (contato, origem e destino, datas e viajantes, hospedagem e revisão). Ao final, a solicitação é enviada para o WhatsApp da agência. Também é possível falar direto pelo WhatsApp.
+
+- [Falar no WhatsApp](https://wa.me/5511976217755): +55 11 97621-7755
+- [Abrir o formulário de cotação](https://pereztour.com.br/?cotacao=pacote): pacote completo, só passagem aérea ou só hospedagem.
+
+## Observação sobre preços
+
+Os valores exibidos no site são exemplos comparativos. O preço final varia conforme a data, a disponibilidade e o momento da consulta.
+
+## Recursos
+
+- [Sitemap](https://pereztour.com.br/sitemap.xml)
+- [robots.txt](https://pereztour.com.br/robots.txt)

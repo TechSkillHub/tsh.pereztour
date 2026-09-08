@@ -19,10 +19,11 @@ export const headerNav = [
     title: 'Destaques',
     link: '/#destaques'
   },
-  {
-    title: 'Depoimentos',
-    link: '/#depoimentos'
-  },
+  // Religar junto com <SectionDepoimentos> em pages/index.vue
+  // {
+  // title: 'Depoimentos',
+  // link: '/#depoimentos'
+  // },
   // {
   //   title: 'Contato',
   //   link: '/#contato'
