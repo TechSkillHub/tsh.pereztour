@@ -20,8 +20,8 @@
           fetchpriority="high"
           loading="eager"
           decoding="async"
-          width="600"
-          height="600"
+          width="560"
+          height="564"
           class="max-w-[90%] m-auto"
         >
       </div>
