@@ -51,8 +51,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-    '@nuxt/icon',
-    '@nuxt/content'
+    '@nuxt/icon'
+    // @nuxt/content removido: era usado só para ler content/main.yml e trazia
+    // ~59KB de JS para a página. O conteúdo virou utils/datas/content.ts.
   ],
   typescript: {
     strict: true,

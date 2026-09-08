@@ -1,6 +1,6 @@
-import { queryContent } from "#imports"
+import { siteContent } from '~/utils/datas/content'
 
-export const useContentCustom = async () => {
-  const data = await queryContent('main').findOne()
-  return data
-}
+// Mantém a assinatura antiga (async) para não mexer nos componentes que já
+// fazem `await useContentCustom()`. O conteúdo agora é um módulo estático,
+// sem o @nuxt/content por trás.
+export const useContentCustom = async () => siteContent
