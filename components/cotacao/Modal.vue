@@ -89,6 +89,10 @@
 </template>
 
 <script setup lang="ts">
+import { registrarRegras } from '~/utils/cotacao/validation'
+
+// registra as regras do vee-validate quando a modal e carregada
+registrarRegras()
 import { useCotacaoStore } from '~/stores/cotacao.store'
 import { buildDuvidaWhatsAppLink, type TripType } from '~/utils/datas/whatsapp.data'
 import CotacaoStepContato from '~/components/cotacao/StepContato.vue'

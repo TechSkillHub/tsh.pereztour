@@ -44,7 +44,6 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
-  plugins: ["~/plugins/vee-validate.client.ts"],
   css: [
     '~/assets/css/global.css'
   ],
