@@ -9,7 +9,7 @@
 
       <div class="cards-scroll md:grid-cols-3 mt-16">
         <figure
-          v-for="item in depoimentos.items"
+          v-for="(item, i) in depoimentos.items"
           :key="item.user"
           class="cards-scroll-item flex h-full flex-col overflow-hidden rounded-2xl bg-offWhite text-theme1"
         >
@@ -27,18 +27,19 @@
             <span aria-hidden="true" class="block font-brand text-4xl leading-none text-theme2">&ldquo;</span>
 
             <blockquote
+              :ref="(el) => (textos[i] = el)"
               class="mt-1 font-light leading-relaxed"
               :class="aberto[item.user] ? '' : 'line-clamp-3 min-h-[4.9rem]'"
             >{{ item.text }}</blockquote>
 
-            <!-- altura reservada em todos os cards para que os tres fiquem iguais,
-                 mesmo que so o depoimento longo mostre o botao -->
+            <!-- Altura reservada em TODOS os cards para que os tres fiquem iguais,
+                 mesmo onde o botao nao aparece. -->
             <div class="mt-2 flex h-6 items-start justify-end">
               <button
-                v-if="longo(item.text)"
+                v-if="cortado[item.user]"
                 type="button"
                 class="text-sm font-semibold uppercase tracking-wide text-theme2Dark underline underline-offset-2"
-                @click="aberto[item.user] = !aberto[item.user]"
+                @click="alternar(item.user)"
               >
                 {{ aberto[item.user] ? 'Leia menos' : 'Leia mais' }}
               </button>
@@ -67,9 +68,37 @@ const depoimentos = content.depoimentos
 // o Vite so resolve o hash do asset para caminhos importados
 const fotos = { gramado, maceio, jalapao }
 
-// depoimento comprido fica com "Leia mais" para nao esticar o card
+const textos = ref([])
 const aberto = reactive({})
-const longo = (t) => t.length > 150
+const cortado = reactive({})
+
+// Quem mostra o "Leia mais" e quem REALMENTE transbordou as 3 linhas, medido
+// no DOM. Contar caracteres nao serve: o card do mobile e mais estreito, entao
+// um texto que cabe em 3 linhas no desktop pode ser cortado no celular (era o
+// caso do Wesley e do Rubens, que ficavam cortados e sem botao).
+function medir() {
+  depoimentos.items.forEach((item, i) => {
+    const el = textos.value[i]
+    // enquanto esta aberto nao ha clamp, entao a medida nao vale
+    if (!el || aberto[item.user]) return
+    cortado[item.user] = el.scrollHeight > el.clientHeight + 1
+  })
+}
+
+function alternar(user) {
+  aberto[user] = !aberto[user]
+  if (!aberto[user]) nextTick(medir)
+}
+
+let observador
+onMounted(async () => {
+  await nextTick()
+  medir()
+  // a largura do card muda com o viewport: remede quando isso acontecer
+  observador = new ResizeObserver(medir)
+  textos.value.forEach((el) => el && observador.observe(el))
+})
+onBeforeUnmount(() => observador?.disconnect())
 </script>
 
 <style scoped>
