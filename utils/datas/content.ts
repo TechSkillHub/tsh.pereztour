@@ -111,18 +111,21 @@ export const siteContent = {
         "user": "Wesley Nolasco",
         "destination": "Gramado/RS",
         "imagem": "gramado",
+        "foco": "object-[center_18%]",
         "text": "Mais um sonho realizado, com todo apoio e suporte que precisamos. Obrigado por mais uma vez fazer parte disso."
       },
       {
         "user": "Fernando Santos",
         "destination": "Maceió/AL",
         "imagem": "maceio",
+        "foco": "object-[center_22%]",
         "text": "Boa tarde, Vinícius! Graças à sua agência de viagens, pudemos desfrutar deste maravilhoso local na foto acima. A Perez Tour Viagens demonstra um compromisso absoluto com o cliente, auxiliando na obtenção dos melhores preços para viagens e passeios. De fato, encontramos aqui as melhores tarifas. A agência, com sua dedicação exemplar, nota mil, chega a elaborar roteiros personalizados para garantir que o cliente aproveite ao máximo sua estadia. Com certeza, viajaremos mais vezes com a Perez Tour Viagens e a recomendamos. Até breve, para uma nova viagem! Obrigado! Fernando e família."
       },
       {
         "user": "Rubens Ferreira",
         "destination": "Jalapão/TO",
         "imagem": "jalapao",
+        "foco": "object-center",
         "text": "Muito obrigado pelo empenho e trabalho aí, a viagem foi TOP demais mano, que lugar fantástico!"
       }
     ]
