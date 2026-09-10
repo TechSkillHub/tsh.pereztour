@@ -104,31 +104,29 @@ export const siteContent = {
   },
   "depoimentos": {
     "title": "Depoimentos",
-    "subtitle": "Lorem ipsum dolor sit<br/>amet, consectetur",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis<br/> accumsan euismod. Maecenas sed est mollis, convallis nisi convallis, imperdiet massa.",
+    "subtitle": "Quem já viajou<br/>com a gente",
+    "text": "Palavras de clientes, com o destino de cada viagem.",
     "items": [
       {
-        "user": "Depoimentos 1",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod.",
-        "destination": "Nova York - NY"
+        "user": "Wesley Nolasco",
+        "destination": "Gramado/RS",
+        "imagem": "gramado",
+        "text": "Mais um sonho realizado, com todo apoio e suporte que precisamos. Obrigado por mais uma vez fazer parte disso."
       },
       {
-        "user": "Depoimentos 2",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod.",
-        "destination": "Nova York - NY"
+        "user": "Fernando Santos",
+        "destination": "Maceió/AL",
+        "imagem": "maceio",
+        "text": "Boa tarde, Vinícius! Graças à sua agência de viagens, pudemos desfrutar deste maravilhoso local na foto acima. A Perez Tour Viagens demonstra um compromisso absoluto com o cliente, auxiliando na obtenção dos melhores preços para viagens e passeios. De fato, encontramos aqui as melhores tarifas. A agência, com sua dedicação exemplar, nota mil, chega a elaborar roteiros personalizados para garantir que o cliente aproveite ao máximo sua estadia. Com certeza, viajaremos mais vezes com a Perez Tour Viagens e a recomendamos. Até breve, para uma nova viagem! Obrigado! Fernando e família."
       },
       {
-        "user": "Depoimentos 3",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod.",
-        "destination": "Nova York - NY"
-      },
-      {
-        "user": "Depoimentos 3",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum congue metus quis accumsan euismod.",
-        "destination": "Nova York - NY"
+        "user": "Rubens Ferreira",
+        "destination": "Jalapão/TO",
+        "imagem": "jalapao",
+        "text": "Muito obrigado pelo empenho e trabalho aí, a viagem foi TOP demais mano, que lugar fantástico!"
       }
     ]
-  }
+  },
 } as const
 
 export type SiteContent = typeof siteContent
