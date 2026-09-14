@@ -27,7 +27,8 @@
           name="dataVolta"
           type="date"
           :label="labelDataVolta"
-          rules="required"
+          :min="minVolta"
+          :rules="minVolta ? `required|depoisDe:${minVolta}` : 'required'"
           v-model="cotacao.datasViajantes.dataVolta"
           :has-error="!!errors.dataVolta"
         />
@@ -37,14 +38,16 @@
         <label for="cotacao-noites" class="block text-sm font-medium leading-6 text-gray-900">
           Noites
         </label>
+        <!-- Somente leitura: as noites vem SO das datas (pedido do cliente). -->
         <input
           id="cotacao-noites"
-          type="number"
-          min="0"
-          v-model.number="cotacao.datasViajantes.noites"
-          class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-theme1 sm:text-sm sm:leading-6 outline-none"
+          type="text"
+          readonly
+          aria-readonly="true"
+          :value="cotacao.datasViajantes.noites ?? ''"
+          class="block w-full cursor-default rounded-md border-0 bg-gray-100 py-1.5 px-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6 outline-none"
         />
-        <p class="mt-1 text-xs text-grayTheme">Calculado a partir das datas. Pode ajustar se quiser.</p>
+        <p class="mt-1 text-xs text-grayTheme">Calculado automaticamente pelas datas.</p>
       </div>
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -129,6 +132,32 @@ function onCriancasInput(e: Event) {
   const target = e.target as HTMLInputElement
   cotacao.setCriancas(Number(target.value))
 }
+
+// "2026-10-22" + 1 dia, em horario local (sem virar o dia por fuso)
+function somaDias(iso: string, dias: number) {
+  const [a, m, d] = iso.split('-').map(Number)
+  const data = new Date(a, m - 1, d + dias)
+  const mm = String(data.getMonth() + 1).padStart(2, '0')
+  const dd = String(data.getDate()).padStart(2, '0')
+  return `${data.getFullYear()}-${mm}-${dd}`
+}
+
+// A volta so pode ser a partir do dia SEGUINTE a ida (pelo menos 1 noite).
+const minVolta = computed(() =>
+  cotacao.datasViajantes.dataIda ? somaDias(cotacao.datasViajantes.dataIda, 1) : undefined
+)
+
+// Se a ida mudar para depois da volta ja escolhida, a volta fica invalida:
+// limpa em vez de deixar um intervalo impossivel preenchido.
+watch(
+  () => cotacao.datasViajantes.dataIda,
+  () => {
+    const { dataVolta } = cotacao.datasViajantes
+    if (dataVolta && minVolta.value && dataVolta < minVolta.value) {
+      cotacao.datasViajantes.dataVolta = ''
+    }
+  }
+)
 
 watch(
   () => [cotacao.datasViajantes.dataIda, cotacao.datasViajantes.dataVolta],

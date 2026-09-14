@@ -10,6 +10,8 @@
         :type="type" 
         :id="id" 
         :disabled="disabled" 
+        :min="min"
+        :max="max"
         :rules=rules
         :class="
           clsx(
@@ -39,6 +41,9 @@ interface InputProps {
   type?: string;
   required?: boolean;
   disabled?: boolean; 
+  /** repassados ao input (ex.: limite de datas em type="date") */
+  min?: string;
+  max?: string;
   hasError: boolean;
   rules: string
 }

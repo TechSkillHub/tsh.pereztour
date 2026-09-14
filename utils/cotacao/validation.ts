@@ -417,6 +417,13 @@ export function registrarRegras() {
     //     regex.test(value) || "O valor inserido não é um formato de moeda válido."
     //   );
     // });
+    // Volta (ou check-out) precisa ser DEPOIS da ida. O atributo min limita o
+    // calendario, mas nao impede digitar a data; esta regra cobre a digitacao.
+    defineRule("depoisDe", (value: string, [minimo]: string[]) => {
+      if (!value || !minimo) return true;
+      return value >= minimo ? true : "Escolha uma data depois da ida";
+    });
+
     configure({
       validateOnInput: true, // Habilita a validação em cada input
     });
