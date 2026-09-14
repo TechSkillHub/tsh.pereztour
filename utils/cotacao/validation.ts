@@ -417,11 +417,24 @@ export function registrarRegras() {
     //     regex.test(value) || "O valor inserido não é um formato de moeda válido."
     //   );
     // });
-    // Volta (ou check-out) precisa ser DEPOIS da ida. O atributo min limita o
-    // calendario, mas nao impede digitar a data; esta regra cobre a digitacao.
-    defineRule("depoisDe", (value: string, [minimo]: string[]) => {
+    // --- datas da cotacao (formato ISO "2026-10-22", que compara como texto) ---
+
+    // Ida / check-in a partir de hoje.
+    defineRule("naoAntesDe", (value: string, [minimo]: string[]) => {
       if (!value || !minimo) return true;
-      return value >= minimo ? true : "Escolha uma data depois da ida";
+      return value >= minimo ? true : "Escolha uma data a partir de hoje";
+    });
+
+    // Volta / check-out depois da ida. params: [dataMinima, "da ida" | "do check-in"]
+    defineRule("depoisDe", (value: string, [minimo, referencia]: string[]) => {
+      if (!value || !minimo) return true;
+      return value >= minimo ? true : `Escolha uma data depois ${referencia || "da ida"}`;
+    });
+
+    // Volta sem ida escolhida: aponta a dependencia em vez de "obrigatorio".
+    // Aplicada SO enquanto a ida esta vazia. params: ["a data de ida" | "a data de check-in"]
+    defineRule("exigeData", (_value: string, [referencia]: string[]) => {
+      return `Escolha ${referencia || "a data de ida"} primeiro`;
     });
 
     configure({

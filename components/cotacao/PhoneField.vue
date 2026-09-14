@@ -3,7 +3,7 @@
     <label :for="id" class="block text-sm font-medium leading-6 text-gray-900">
       {{ label }}
     </label>
-    <div class="tooltip">
+    <div>
       <input
         :id="id"
         type="tel"
@@ -16,19 +16,16 @@
         :class="
           clsx(
             'block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-theme1 sm:text-sm sm:leading-6 outline-none',
-            errorMessage && 'ring-red-500 focus:ring-red-500'
+            errorMessage && 'ring-red-700 focus:ring-red-700'
           )
         "
       />
-      <transition name="fade" mode="out-in">
-        <span v-if="errorMessage" class="tooltiptext">{{ errorMessage }}</span>
-      </transition>
+      <p v-if="errorMessage" class="mt-1 block text-xs text-red-700">{{ errorMessage }}</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import "~/assets/css/tooltip.css"
 import { useField } from 'vee-validate'
 import clsx from 'clsx'
 import { maskPhoneBR } from '~/utils/mask/phone'

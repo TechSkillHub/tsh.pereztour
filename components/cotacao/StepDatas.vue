@@ -18,7 +18,8 @@
           name="dataIda"
           type="date"
           :label="labelDataIda"
-          rules="required"
+          :min="hoje"
+          :rules="regrasIda"
           v-model="cotacao.datasViajantes.dataIda"
           :has-error="!!errors.dataIda"
         />
@@ -28,13 +29,13 @@
           type="date"
           :label="labelDataVolta"
           :min="minVolta"
-          :rules="minVolta ? `required|depoisDe:${minVolta}` : 'required'"
+          :rules="regrasVolta"
           v-model="cotacao.datasViajantes.dataVolta"
           :has-error="!!errors.dataVolta"
         />
       </div>
 
-      <div class="max-w-[160px]">
+      <div>
         <label for="cotacao-noites" class="block text-sm font-medium leading-6 text-gray-900">
           Noites
         </label>
@@ -45,9 +46,9 @@
           readonly
           aria-readonly="true"
           :value="cotacao.datasViajantes.noites ?? ''"
-          class="block w-full cursor-default rounded-md border-0 bg-gray-100 py-1.5 px-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6 outline-none"
+          class="block w-full max-w-[160px] cursor-default rounded-md border-0 bg-gray-100 py-1.5 px-2 text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6 outline-none"
         />
-        <p class="mt-1 text-xs text-grayTheme">Calculado automaticamente pelas datas.</p>
+        <p class="mt-1 whitespace-nowrap text-xs text-grayTheme">Calculado automaticamente pelas datas.</p>
       </div>
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -142,9 +143,34 @@ function somaDias(iso: string, dias: number) {
   return `${data.getFullYear()}-${mm}-${dd}`
 }
 
+// Hoje em horario local. A modal so renderiza no navegador (lazy + v-if),
+// entao isto nao fica congelado na data do build.
+// (nao usar toISOString: e UTC e, depois das 21h em Sao Paulo, ja e o dia seguinte)
+const hoje = dataLocalHoje()
+
+function dataLocalHoje() {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+const referencia = computed(() =>
+  ehHospedagem.value
+    ? { campo: 'a data de check-in', depois: 'do check-in' }
+    : { campo: 'a data de ida', depois: 'da ida' }
+)
+
+const regrasIda = computed(() => ({ required: true, naoAntesDe: [hoje] }))
+
 // A volta so pode ser a partir do dia SEGUINTE a ida (pelo menos 1 noite).
 const minVolta = computed(() =>
   cotacao.datasViajantes.dataIda ? somaDias(cotacao.datasViajantes.dataIda, 1) : undefined
+)
+
+// Sem ida escolhida, a mensagem aponta a dependencia; com ida, exige volta depois dela.
+const regrasVolta = computed(() =>
+  minVolta.value
+    ? { required: true, depoisDe: [minVolta.value, referencia.value.depois] }
+    : { exigeData: [referencia.value.campo] }
 )
 
 // Se a ida mudar para depois da volta ja escolhida, a volta fica invalida:

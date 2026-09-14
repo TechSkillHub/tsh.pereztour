@@ -32,7 +32,7 @@
     </div>
     <p v-if="microcopy" class="mt-2 text-xs text-grayTheme">{{ microcopy }}</p>
     <transition name="fade" mode="out-in">
-      <ErrorMessage :name="name" class="block mt-1 text-xs text-red-500" />
+      <ErrorMessage :name="name" class="block mt-1 text-xs text-red-700" />
     </transition>
   </fieldset>
 </template>

@@ -40,7 +40,7 @@
           </span>
         </label>
         <transition name="fade" mode="out-in">
-          <ErrorMessage name="autoriza" class="mt-1 block text-xs text-red-500" />
+          <ErrorMessage name="autoriza" class="mt-1 block text-xs text-red-700" />
         </transition>
       </div>
 
