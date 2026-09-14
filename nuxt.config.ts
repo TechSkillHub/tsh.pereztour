@@ -15,7 +15,7 @@ const jsonLd = {
       alternateName: "Perez Tour",
       url: url + "/",
       description,
-      telephone: "+5511976217755",
+      telephone: "+5511966192321",
       areaServed: { "@type": "Country", name: "Brasil" },
       availableLanguage: ["pt-BR"],
       hasOfferCatalog: {

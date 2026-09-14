@@ -3,7 +3,7 @@ export const description = "Agência de viagens que planeja sua viagem do iníci
 export const siteName = "Perez Consulting Tour";
 // Canonica SEM www: e para onde o nginx redireciona e como o site e divulgado.
 export const url = "https://pereztour.com.br";
-export const whatsapp = "+5511976217755";
+export const whatsapp = "+5511966192321";
 
 // GTM ainda nao configurado. Preencher quando o cliente criar o container.
 export const gtm = "";

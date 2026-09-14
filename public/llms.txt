@@ -24,7 +24,7 @@ A Perez Consulting Tour organiza e planeja viagens de acordo com o destino do cl
 
 O site tem um formulário de cotação em 5 etapas (contato, origem e destino, datas e viajantes, hospedagem e revisão). Ao final, a solicitação é enviada para o WhatsApp da agência. Também é possível falar direto pelo WhatsApp.
 
-- [Falar no WhatsApp](https://wa.me/5511976217755): +55 11 97621-7755
+- [Falar no WhatsApp](https://wa.me/5511966192321): +55 11 96619-2321
 - [Abrir o formulário de cotação](https://pereztour.com.br/?cotacao=pacote): pacote completo, só passagem aérea ou só hospedagem.
 
 ## Observação sobre preços

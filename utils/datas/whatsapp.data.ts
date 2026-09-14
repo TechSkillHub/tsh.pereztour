@@ -1,4 +1,4 @@
-export const number = '+5511976217755'
+export const number = '+5511966192321'
 
 /** wa.me exige só dígitos — sem "+" e sem separadores. */
 const phoneDigits = number.replace(/\D/g, '')
