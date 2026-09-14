@@ -8,9 +8,11 @@ const defaultMeta = {
   siteName,
   contentType: 'website',
   url: url + '/',
-  socialBanner: url + '/social_banner.jpg', // arquivo em public/
-  bannerWidth: '740',
-  bannerHeight: '300',
+  // Nome NOVO de proposito: WhatsApp/Facebook guardam a imagem pela URL, entao
+  // trocar o arquivo mantendo o nome nao atualiza a previa de quem ja tem cache.
+  socialBanner: url + '/og-image.jpg', // arquivo em public/, 1200x630
+  bannerWidth: '1200',
+  bannerHeight: '630',
   twitterCardType: 'summary_large_image'
 }
 
@@ -30,6 +32,8 @@ export const generateMeta = (metaOverrides = {}) => {
     { property: 'og:image', content: meta.socialBanner },
     { property: 'og:image:width', content: meta.bannerWidth },
     { property: 'og:image:height', content: meta.bannerHeight },
+    { property: 'og:image:type', content: 'image/jpeg' },
+    { property: 'og:image:alt', content: 'Perez Consulting Tour: sonhar é realizar, viajar é economizar' },
 
     // Twitter
     { name: 'twitter:card', content: meta.twitterCardType },
