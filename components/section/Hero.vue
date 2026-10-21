@@ -6,6 +6,7 @@
         <p class="my-8">{{ hero.text }}</p>
         <NuxtLink
           :href="buildCtaWhatsAppLink('hero')"
+          @click="rastrearWhatsApp('hero')"
           target="_blank"
           rel="noopener"
           class="inline-block mx-auto md:mx-0"
@@ -32,6 +33,7 @@
 <script setup>
 import { useContentCustom } from '~/composables/useCustomContent'
 import { buildCtaWhatsAppLink } from '~/utils/datas/whatsapp.data'
+import { rastrearWhatsApp } from '~/composables/useAnalytics'
 
 const content = await useContentCustom()
 const hero = content.hero

@@ -55,6 +55,7 @@
       <div class="mt-14 text-center">
         <NuxtLink
           :href="buildCtaWhatsAppLink('quemSomos')"
+          @click="rastrearWhatsApp('quemSomos')"
           target="_blank"
           rel="noopener"
           class="inline-block"
@@ -69,6 +70,7 @@
 <script setup>
 import { useContentCustom } from '~/composables/useCustomContent'
 import { buildCtaWhatsAppLink } from '~/utils/datas/whatsapp.data'
+import { rastrearWhatsApp } from '~/composables/useAnalytics'
 
 const content = await useContentCustom()
 const quemSomos = content.quemSomos

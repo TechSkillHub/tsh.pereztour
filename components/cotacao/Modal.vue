@@ -53,6 +53,7 @@
             <div class="mt-3 text-center">
               <a
                 :href="duvidaLink"
+                @click="rastrearWhatsApp('duvidaCotacao')"
                 target="_blank"
                 rel="noopener"
                 class="text-xs text-theme1/60 underline hover:text-theme2"
@@ -95,6 +96,7 @@ import { registrarRegras } from '~/utils/cotacao/validation'
 registrarRegras()
 import { useCotacaoStore } from '~/stores/cotacao.store'
 import { buildDuvidaWhatsAppLink, type TripType } from '~/utils/datas/whatsapp.data'
+import { rastrearWhatsApp } from '~/composables/useAnalytics'
 import CotacaoStepContato from '~/components/cotacao/StepContato.vue'
 import CotacaoStepOrigemDestino from '~/components/cotacao/StepOrigemDestino.vue'
 import CotacaoStepDatas from '~/components/cotacao/StepDatas.vue'
