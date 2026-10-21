@@ -1,16 +1,10 @@
-// Links das redes sociais OCULTOS ate o cliente enviar os perfis reais.
-// Os valores anteriores apontavam para as HOME das redes (https://instagram.com/,
-// https://x.com/, https://facebook.com/, https://youtube.com/), sem perfil nenhum:
-// clicar levava o visitante para fora do site sem chegar na Perez Tour.
+// Redes sociais da Perez Tour. O Vinicius confirmou em 21/10/2026: a UNICA rede
+// deles e o Instagram. Nao recolocar Facebook, YouTube e X "para preencher" —
+// antes eles apontavam para a HOME das redes e levavam o visitante para fora do
+// site sem chegar na agencia.
 //
-// Para religar: preencher com as URLs dos perfis e descomentar.
-// Lembrar de tambem adicionar o campo sameAs no JSON-LD (nuxt.config.ts).
-//
-// export const socialLinks = [
-//   { title: 'Instagram', url: 'https://instagram.com/<perfil>', icon: 'fa6-brands:instagram' },
-//   { title: 'Facebook',  url: 'https://facebook.com/<perfil>',  icon: 'fa6-brands:facebook' },
-//   { title: 'YouTube',   url: 'https://youtube.com/@<perfil>',  icon: 'fa6-brands:youtube' },
-//   { title: 'X',         url: 'https://x.com/<perfil>',         icon: 'fa6-brands:x-twitter' },
-// ];
-
-export const socialLinks: { title: string; url: string; icon: string }[] = [];
+// Ao mexer aqui, mexer tambem no sameAs do JSON-LD (nuxt.config.ts): e de la que
+// os buscadores e os motores generativos ligam o site ao perfil.
+export const socialLinks: { title: string; url: string; icon: string }[] = [
+  { title: 'Instagram', url: 'https://www.instagram.com/pereztour.of/', icon: 'fa6-brands:instagram' },
+];

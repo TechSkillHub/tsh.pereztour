@@ -3,8 +3,6 @@ import { title, description, siteName, url } from "./utils/constants/seo.constan
 
 // Dados estruturados: e assim que buscadores E motores generativos (GEO/AEO/LLMs)
 // entendem o que a agencia faz. Somente fatos que existem no proprio site.
-// O campo sameAs foi omitido de proposito: os links sociais do projeto ainda apontam para
-// as home das redes, nao para os perfis da agencia.
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -18,6 +16,9 @@ const jsonLd = {
       telephone: "+5511966192321",
       areaServed: { "@type": "Country", name: "Brasil" },
       availableLanguage: ["pt-BR"],
+      // Perfil oficial (unica rede da agencia): e por aqui que o buscador liga
+      // o site ao Instagram. Manter igual ao utils/datas/socialMedia.data.ts.
+      sameAs: ["https://www.instagram.com/pereztour.of/"],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Serviços",

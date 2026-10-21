@@ -31,6 +31,10 @@ O site tem um formulário de cotação em 5 etapas (contato, origem e destino, d
 
 Os valores exibidos no site são exemplos comparativos. O preço final varia conforme a data, a disponibilidade e o momento da consulta.
 
+## Onde mais encontrar a agência
+
+- [Instagram @pereztour.of](https://www.instagram.com/pereztour.of/): único perfil oficial da agência.
+
 ## Recursos
 
 - [Sitemap](https://pereztour.com.br/sitemap.xml)
