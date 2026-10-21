@@ -9,4 +9,4 @@
  * a TSH sai). O ID NAO muda nessa passagem, entao isto aqui continua valendo.
  * Processo da casa: docs/processos/medicao-cliente-ga4-search-console.md
  */
-export const gaId = ''
+export const gaId = 'G-23K170LB2N'
