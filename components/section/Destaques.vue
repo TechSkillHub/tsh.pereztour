@@ -45,7 +45,7 @@
       </p>
 
       <div class="mt-12 flex justify-center">
-        <FieldButton type="button" class="!w-auto max-w-full !px-6 !text-lg md:whitespace-nowrap md:!px-14 md:!text-2xl" @click="cotacao.openModal('pacote')">
+        <FieldButton type="button" class="!w-auto max-w-full !px-6 !text-lg md:whitespace-nowrap md:!px-14 md:!text-2xl" @click="abrirCotacao">
           QUERO UMA COTAÇÃO ASSIM
         </FieldButton>
       </div>
@@ -56,10 +56,16 @@
 <script setup>
 import { useContentCustom } from '~/composables/useCustomContent'
 import { useCotacaoStore } from '~/stores/cotacao.store'
+import { rastrear } from '~/composables/useAnalytics'
 
 const content = await useContentCustom()
 const destaques = content.destaques
 const cotacao = useCotacaoStore()
+
+function abrirCotacao() {
+  rastrear('abrir_cotacao', { origem: 'destaquePacote', tipoViagem: 'pacote' })
+  cotacao.openModal('pacote')
+}
 </script>
 
 <style scoped>

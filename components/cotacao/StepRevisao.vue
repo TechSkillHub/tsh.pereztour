@@ -78,7 +78,7 @@
 import { Form } from 'vee-validate'
 import { useCotacaoStore } from '~/stores/cotacao.store'
 import { buildCotacaoWhatsAppLink } from '~/utils/datas/whatsapp.data'
-import { rastrearWhatsApp } from '~/composables/useAnalytics'
+import { rastrear } from '~/composables/useAnalytics'
 
 const cotacao = useCotacaoStore()
 const enviado = ref(false)
@@ -153,8 +153,9 @@ function handleEnviar() {
     valorInvestimento: cotacao.hospedagem.valorInvestimento,
   })
 
-  // Cotacao concluida: mesmo evento dos CTAs, com o tipo de viagem junto.
-  rastrearWhatsApp('cotacao', { tipoViagem: cotacao.tripType })
+  // Cotacao concluida = o lead. Evento proprio (nao o click_whatsapp dos CTAs),
+  // sem nenhum dado pessoal: so o tipo de viagem.
+  rastrear('generate_lead', { origem: 'cotacao', tipoViagem: cotacao.tripType })
 
   window.open(link, '_blank')
   enviado.value = true

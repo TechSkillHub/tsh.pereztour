@@ -3,6 +3,13 @@ import type { TripType } from '~/utils/datas/whatsapp.data'
 export const TOTAL_STEPS = 5
 const MAX_CRIANCAS = 10
 
+/** Deep-link por query string (?cotacao=1 | pacote | passagem | hospedagem). */
+export function tipoDaQuery(raw: unknown): TripType {
+  const value = Array.isArray(raw) ? raw[0] : raw
+  if (value === 'passagem' || value === 'hospedagem' || value === 'pacote') return value
+  return 'pacote'
+}
+
 export interface ContatoData {
   nome: string
   whatsapp: string

@@ -12,9 +12,20 @@
 <script setup lang="ts">
 import { generateMeta } from '@/utils/constants/generateMeta';
 import { title } from '@/utils/constants/seo.constant';
-import { useCotacaoStore } from '~/stores/cotacao.store';
+import { useCotacaoStore, tipoDaQuery } from '~/stores/cotacao.store';
+import { rastrear } from '~/composables/useAnalytics';
 
 const cotacao = useCotacaoStore();
+const route = useRoute();
+
+// Link direto para a cotacao (?cotacao=<tipo>). Fica AQUI, e nao na modal,
+// porque a modal so e montada depois de aberta: la dentro ela nunca via o link.
+onMounted(() => {
+  if (!route.query.cotacao || cotacao.show) return
+  const tipo = tipoDaQuery(route.query.cotacao)
+  rastrear('abrir_cotacao', { origem: 'url', tipoViagem: tipo })
+  cotacao.openModal(tipo)
+})
 
 useHead({
   title,

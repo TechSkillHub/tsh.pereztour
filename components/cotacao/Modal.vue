@@ -96,7 +96,7 @@ import { registrarRegras } from '~/utils/cotacao/validation'
 registrarRegras()
 import { useCotacaoStore } from '~/stores/cotacao.store'
 import { buildDuvidaWhatsAppLink, type TripType } from '~/utils/datas/whatsapp.data'
-import { rastrearWhatsApp } from '~/composables/useAnalytics'
+import { rastrear, rastrearWhatsApp } from '~/composables/useAnalytics'
 import CotacaoStepContato from '~/components/cotacao/StepContato.vue'
 import CotacaoStepOrigemDestino from '~/components/cotacao/StepOrigemDestino.vue'
 import CotacaoStepDatas from '~/components/cotacao/StepDatas.vue'
@@ -153,18 +153,20 @@ function doClose() {
   showTypeSwitcher.value = false
 }
 
-// --- Deep-link por query string (?cotacao=1 | pacote | passagem | hospedagem) ---
-function mapQueryToType(raw: unknown): TripType {
-  const value = Array.isArray(raw) ? raw[0] : raw
-  if (value === 'passagem' || value === 'hospedagem' || value === 'pacote') return value
-  return 'pacote'
-}
+// O link direto (?cotacao=<tipo>) e lido no app.vue: esta modal so e montada
+// depois de aberta, entao daqui ela nunca o enxergava.
 
-function openFromQueryIfNeeded() {
-  if (route.query.cotacao && !cotacao.show) {
-    cotacao.openModal(mapQueryToType(route.query.cotacao))
-  }
-}
+// Medicao: uma etapa_cotacao a cada etapa que a pessoa alcanca. "immediate"
+// cobre a etapa em que a modal abre (pode nao ser a 1, o rascunho fica salvo).
+// So com a modal aberta: o reset depois do envio volta para a etapa 1 e isso
+// nao e a pessoa chegando la.
+watch(
+  () => cotacao.step,
+  (etapa) => {
+    if (cotacao.show) rastrear('etapa_cotacao', { etapa, tipoViagem: cotacao.tripType })
+  },
+  { immediate: true }
+)
 
 watch(
   () => cotacao.show,
@@ -256,7 +258,6 @@ function handleDocumentKeydown(e: KeyboardEvent) {
 
 onMounted(() => {
   document.addEventListener('keydown', handleDocumentKeydown)
-  openFromQueryIfNeeded()
 })
 
 onUnmounted(() => {

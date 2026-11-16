@@ -19,12 +19,14 @@
 import { useContentCustom } from '~/composables/useCustomContent'
 import { useCotacaoStore } from '~/stores/cotacao.store'
 import type { TripType } from '~/utils/datas/whatsapp.data'
+import { rastrear } from '~/composables/useAnalytics'
 
 const content = await useContentCustom()
 const cotacaoContent = content.cotacao
 const cotacao = useCotacaoStore()
 
 function handleSelect(type: TripType) {
+  rastrear('abrir_cotacao', { origem: 'cardTipoViagem', tipoViagem: type })
   cotacao.openModal(type)
 }
 </script>

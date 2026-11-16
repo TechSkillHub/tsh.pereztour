@@ -5,7 +5,13 @@
         <LogosBrand/>
       </div>
       <div class="md:w-1/3 flex justify-end gap-3">
-        <IconsSocialIcon v-for="(item, index) in socialLinks" :key="index" :icon="item.icon" :url="item.url" />
+        <IconsSocialIcon
+          v-for="(item, index) in socialLinks"
+          :key="index"
+          :icon="item.icon"
+          :url="item.url"
+          @click="item.title === 'Instagram' && rastrear('click_instagram', { origem: 'rodape' })"
+        />
       </div>
     </div>
     <div class="container mt-8 border-t border-offWhite pt-4">
@@ -16,6 +22,7 @@
 
 <script setup lang="ts">
 import { socialLinks } from '~/utils/datas/socialMedia.data';
+import { rastrear } from '~/composables/useAnalytics';
 
 // ano corrente para o copyright nao envelhecer sozinho
 const ano = new Date().getFullYear();
