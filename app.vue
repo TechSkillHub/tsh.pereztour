@@ -4,6 +4,8 @@
   <!-- Lazy + v-if: o chunk da modal (vee-validate + os passos do formulario)
        so e baixado quando alguem abre a cotacao. -->
   <LazyCotacaoModal v-if="cotacao.show" />
+  <!-- So no navegador: a escolha de cookies mora no localStorage. -->
+  <ClientOnly><ElementsAvisoCookies /></ClientOnly>
   <div>
     <NuxtLayout />
   </div>

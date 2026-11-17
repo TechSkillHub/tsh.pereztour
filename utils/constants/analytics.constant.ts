@@ -14,3 +14,13 @@
  * Processo da casa: docs/processos/medicao-cliente-ga4-search-console.md
  */
 export const gtmId = 'GTM-MRZ4QTHC'
+
+/**
+ * Onde a escolha do aviso de cookies fica salva (localStorage).
+ *
+ * A versao no nome e de proposito: se o site passar a usar outra ferramenta
+ * (ex.: Pixel da Meta para anuncios), o consentimento antigo NAO cobre a nova
+ * finalidade. Trocar para "-v2" faz o aviso aparecer de novo para todo mundo.
+ * Junto: atualizar o texto do aviso e a pagina /privacidade.
+ */
+export const consentimentoChave = 'perez-consentimento-v1'
