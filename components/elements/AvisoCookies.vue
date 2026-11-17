@@ -9,11 +9,14 @@
       <div class="rounded-xl border border-[#e8ebf7]/20 bg-theme1 p-5 text-offWhite shadow-2xl">
         <h2 id="aviso-cookies-titulo" class="text-sm font-bold">Cookies de medição</h2>
         <p class="mt-2 text-sm leading-relaxed text-offWhite">
-          Com a sua permissão, usamos cookies do Google Analytics para saber quantas pessoas visitam o
-          site e quais botões ajudam mais. O que você digita na cotação nunca entra nessa medição.
+          Usamos cookies do Google Analytics para saber quantas pessoas visitam o site e quais botões
+          ajudam mais. O que você digita na cotação nunca entra nessa medição.
           <NuxtLink to="/privacidade" class="font-semibold text-theme2 underline underline-offset-2">
             Política de privacidade
           </NuxtLink>
+        </p>
+        <p v-if="reaberto && escolha" class="mt-3 text-xs font-semibold text-theme3">
+          Neste navegador, a medição está {{ escolha === 'recusado' ? 'desligada' : 'ligada' }}.
         </p>
         <div class="mt-4 grid grid-cols-2 gap-3">
           <button
@@ -22,14 +25,14 @@
             class="rounded-md border-2 border-[#e8ebf7]/70 py-2.5 text-sm font-bold text-offWhite transition-colors hover:bg-[#e8ebf7]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme2"
             @click="recusar"
           >
-            Recusar
+            Não quero ser medido
           </button>
           <button
             type="button"
             class="rounded-md border-2 border-theme2 bg-theme2 py-2.5 text-sm font-bold text-theme1 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-offWhite"
             @click="aceitar"
           >
-            Aceitar
+            {{ reaberto && escolha === 'recusado' ? 'Pode medir' : 'Ok' }}
           </button>
         </div>
       </div>
@@ -51,7 +54,7 @@ import { useConsentimento } from '~/composables/useConsentimento'
  * --aviso-cookies-altura para o botao flutuante do WhatsApp subir e nao ficar
  * escondido atras do aviso.
  */
-const { aberto, pronto, reaberto, aceitar, recusar } = useConsentimento()
+const { aberto, pronto, reaberto, escolha, aceitar, recusar } = useConsentimento()
 
 const raiz = ref<HTMLElement | null>(null)
 const primeiroBotao = ref<HTMLButtonElement | null>(null)

@@ -2,16 +2,20 @@ import { gtmId } from '~/utils/constants/analytics.constant'
 import { lerEscolhaSalva, type Escolha } from '~/composables/useConsentimento'
 
 /**
- * Google Tag Manager (o GA4 vem por dentro dele), SO com consentimento.
+ * Google Tag Manager (o GA4 vem por dentro dele).
  *
  * Tres decisoes de proposito:
  * 1) Sem ID configurado, NADA e carregado (o site segue sem tag nenhuma).
- * 2) LGPD: sem "Aceitar" no aviso de cookies, o GTM nao e carregado. Nenhuma
- *    requisicao vai para o Google. O Consent Mode v2 tambem comeca negado, para
- *    as tags do Google saberem o estado mesmo depois de carregadas.
- * 3) Com consentimento salvo, o GTM so e baixado DEPOIS que a imagem principal
- *    termina. Eventos disparados antes nao se perdem: ficam na fila do
- *    dataLayer e sao lidos quando o GTM chega.
+ * 2) LGPD, decisao do Felipe em 17/11/2026: MEDICAO por legitimo interesse,
+ *    com direito de recusar. Mede desde a primeira visita; o aviso so informa.
+ *    Quem clica em "Nao quero ser medido" nao carrega mais o GTM e tem os
+ *    cookies do GA apagados. (O modelo "pedir antes" foi testado no mesmo dia e
+ *    descartado: quem recusa some dos numeros, e quase todo mundo recusa.)
+ *    ANUNCIO (ad_storage etc.) segue negado: se um dia entrar Pixel, ele pede
+ *    permissao ANTES. Processo: docs/processos/medicao-cliente-ga4-search-console.md
+ * 3) O GTM so e baixado DEPOIS que a imagem principal termina. Eventos
+ *    disparados antes nao se perdem: ficam na fila do dataLayer e sao lidos
+ *    quando o GTM chega.
  *
  * Por que NAO basta esperar o evento "load" (medido em 21/10/2026):
  * neste site o load dispara ~1,1s, antes mesmo da primeira pintura, porque a
@@ -36,8 +40,11 @@ export default defineNuxtPlugin(() => {
     w.dataLayer.push(arguments)
   } as (...args: unknown[]) => void
 
+  const salvo = lerEscolhaSalva()
+  useState<Escolha | null>('consentimento', () => null).value = salvo
+
   gtag('consent', 'default', {
-    analytics_storage: 'denied',
+    analytics_storage: salvo === 'recusado' ? 'denied' : 'granted',
     ad_storage: 'denied',
     ad_user_data: 'denied',
     ad_personalization: 'denied',
@@ -114,12 +121,9 @@ export default defineNuxtPlugin(() => {
       )
   }
 
-  const salvo = lerEscolhaSalva()
-  useState<Escolha | null>('consentimento', () => null).value = salvo
-  if (salvo === 'aceito') {
-    gtag('consent', 'update', { analytics_storage: 'granted' })
-    agendarDepoisDoLcp()
-  }
+  // Quem recusou nao carrega nada. Todo o resto (inclusive quem ainda nao
+  // respondeu o aviso) e medido.
+  if (salvo !== 'recusado') agendarDepoisDoLcp()
 
   return {
     provide: {
@@ -127,7 +131,8 @@ export default defineNuxtPlugin(() => {
         aplicar(escolha: Escolha) {
           if (escolha === 'aceito') {
             gtag('consent', 'update', { analytics_storage: 'granted' })
-            // Quem acabou de clicar ja esta interagindo: carrega na proxima folga.
+            // "Ok" de quem ja estava sendo medido nao muda nada (carregar e
+            // idempotente). Quem tinha recusado e voltou atras: carrega agora.
             naOciosidade()
           } else {
             gtag('consent', 'update', { analytics_storage: 'denied' })

@@ -1,12 +1,13 @@
 import { consentimentoChave } from '~/utils/constants/analytics.constant'
 
 /**
- * Aviso de cookies (LGPD): a medicao so carrega depois do "Aceitar".
+ * Aviso de cookies (LGPD). Medicao por legitimo interesse, com direito de recusar
+ * (decisao do Felipe em 17/11/2026; ver plugins/analytics.client.ts).
  *
- * - Sem escolha salva: o aviso aparece e NADA de medicao e carregado.
- * - "aceito": carrega o GTM (e o GA4 por dentro dele).
- * - "recusado": nao carrega; se ja tinha carregado, nega o consentimento e
- *   apaga os cookies do Google Analytics.
+ * - Sem escolha salva: mede, e o aviso aparece informando.
+ * - "aceito" (botao "Ok"): mede e o aviso some.
+ * - "recusado" ("Nao quero ser medido"): nao carrega mais a medicao; se ja
+ *   tinha carregado, nega o consentimento e apaga os cookies do Google Analytics.
  * A escolha pode ser mudada a qualquer hora pelo rodape ("Preferencias de cookies").
  */
 export type Escolha = 'aceito' | 'recusado'

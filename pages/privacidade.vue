@@ -64,10 +64,10 @@
       </section>
 
       <section class="mt-12">
-        <h2 class="politica-titulo">4. Medição de visitas (só se você aceitar)</h2>
+        <h2 class="politica-titulo">4. Medição de visitas (você pode recusar)</h2>
         <p class="politica-texto">
-          Se você clicar em "Aceitar" no aviso de cookies, o site carrega o Google Tag Manager e o
-          Google Analytics, ferramentas do Google. Elas registram, sem o seu nome nem o seu número:
+          O site usa o Google Tag Manager e o Google Analytics, ferramentas do Google, para medir as
+          visitas. Elas registram, sem o seu nome nem o seu número:
           páginas vistas, de onde você chegou, tipo de aparelho e navegador, cidade aproximada e quais
           botões foram usados (por exemplo, o botão do WhatsApp ou até qual etapa da cotação a pessoa
           chegou). O que você digita na cotação nunca entra nessa medição.
@@ -77,8 +77,11 @@
           melhorar a página e o atendimento.
         </p>
         <p class="politica-texto">
-          <strong>Base legal:</strong> o seu consentimento (art. 7º, I). Se você recusar, nada disso é
-          carregado.
+          <strong>Base legal:</strong> o legítimo interesse da Perez Tour em entender como o site é usado
+          (art. 7º, IX), sem identificar quem você é. Você pode recusar a qualquer momento: clique em
+          "Não quero ser medido" no aviso de cookies ou em "Preferências de cookies" no rodapé. Depois
+          disso, a medição deixa de ser carregada neste navegador e os cookies do Google Analytics são
+          apagados.
         </p>
         <p class="politica-texto">
           <strong>Prazo:</strong> o Google apaga os dados detalhados ligados ao seu navegador em até 14
@@ -111,7 +114,7 @@
             <tbody class="divide-y divide-[#e8ebf7]/15 text-offWhite">
               <tr>
                 <td class="p-3">Sua escolha no aviso de cookies (armazenamento local)</td>
-                <td class="p-3">Lembrar se você aceitou ou recusou</td>
+                <td class="p-3">Lembrar se você recusou a medição e não mostrar o aviso de novo</td>
                 <td class="p-3">Sempre que você escolhe</td>
                 <td class="p-3">Até você limpar os dados do navegador</td>
               </tr>
@@ -124,7 +127,7 @@
               <tr>
                 <td class="p-3">Cookies <code>_ga</code> e <code>_ga_23K170LB2N</code> (Google Analytics)</td>
                 <td class="p-3">Diferenciar visitantes nas estatísticas</td>
-                <td class="p-3">Só se você aceitar</td>
+                <td class="p-3">Nas visitas, a menos que você recuse</td>
                 <td class="p-3">Até 2 anos, ou até você recusar</td>
               </tr>
             </tbody>
@@ -135,7 +138,7 @@
       <section class="mt-12">
         <h2 class="politica-titulo">7. Com quem os dados são compartilhados</h2>
         <ul class="politica-lista">
-          <li>Google (Google Analytics e Google Tag Manager), só se você aceitar a medição.</li>
+          <li>Google (Google Analytics e Google Tag Manager), para a medição de visitas, a menos que você recuse.</li>
           <li>Meta (WhatsApp), quando você manda mensagem.</li>
           <li>DigitalOcean, empresa que hospeda o servidor do site.</li>
         </ul>
@@ -150,8 +153,8 @@
         <p class="politica-texto">
           A LGPD (art. 18) garante que você pode pedir: a confirmação de que tratamos dados seus e o
           acesso a eles; a correção; a anonimização, o bloqueio ou a eliminação do que for
-          desnecessário; a portabilidade; a informação sobre com quem compartilhamos; e a revogação do
-          consentimento a qualquer momento.
+          desnecessário; a portabilidade; a informação sobre com quem compartilhamos; e a oposição a
+          um tratamento, como a medição de visitas.
         </p>
         <p class="politica-texto">
           Para pedir, fale pelo WhatsApp
@@ -164,8 +167,8 @@
         <h2 class="politica-titulo">9. Como mudar a sua escolha sobre cookies</h2>
         <p class="politica-texto">
           Use o link "Preferências de cookies" no rodapé de qualquer página, ou o botão abaixo. Se você
-          recusar depois de ter aceitado, o site deixa de medir e apaga deste navegador os cookies do
-          Google Analytics.
+          escolher "Não quero ser medido", o site deixa de medir e apaga deste navegador os cookies do
+          Google Analytics. Dá para voltar atrás pelo mesmo caminho.
         </p>
         <button
           type="button"
@@ -180,8 +183,8 @@
         <h2 class="politica-titulo">10. Mudanças nesta política</h2>
         <p class="politica-texto">
           Se o site passar a coletar algo diferente, por exemplo com uma ferramenta nova, esta página é
-          atualizada antes, com a nova data. Quando a mudança envolver cookies, o aviso volta a pedir a
-          sua escolha.
+          atualizada antes, com a nova data. Se um dia o site usar cookies de anúncio, eles só serão
+          carregados depois que você permitir.
         </p>
       </section>
     </div>
